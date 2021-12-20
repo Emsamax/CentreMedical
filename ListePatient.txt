@@ -1,0 +1,2 @@
+{client numero  nom='v', prenom='v', NbSScoial='v', dateNaissance='v'}
+{client numero  nom='nassim', prenom='le bg ', NbSScoial='141414141', dateNaissance='j'ai oublié'}

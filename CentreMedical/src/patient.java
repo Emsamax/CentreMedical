@@ -11,7 +11,7 @@ public class Patient {
     public String prenom;
     public String NbSScoial;
     public String dateNaissance;
-    static int nbClient = 0;
+   
 
     // getters setters =========
     public String getNom() {
@@ -55,30 +55,36 @@ public class Patient {
         this.prenom = prenom;
         this.NbSScoial = NbSScoial;
         this.dateNaissance = dateNaissance;
+
     }
        
     
     public void ecrirePatient()throws IOException {
         // si pas de fichier existants on en cree un sinom on ecris dedans
         File f = new File("ListePatient.txt");
-        
+        // creation et ecriture
         if(!f.exists()){
             PrintWriter out = new PrintWriter(f); 
             out.println(this.toString());
-        } PrintWriter out = new PrintWriter(new FileWriter(f, true));// probleme ici
+        } 
+        //ecriture
+        PrintWriter out = new PrintWriter(new FileWriter(f, true));
+        out.write(this.toString());
+        System.out.println();
         out.close(); 
-            
+        
         }
 
 
     @Override
    public  String toString() {
-        return "{" +
+        return "{"+
             " nom='" + getNom() + "'" +
             ", prenom='" + getPrenom() + "'" +
             ", NbSScoial='" + getNbSScoial() + "'" +
             ", dateNaissance='" + getDateNaissance() + "'" +
-            "}";
+            "}\n";
+            
     }
 
 }

@@ -23,6 +23,7 @@ public class Main {
 
         try{
             pat.ecrirePatient();
+            pat2.ecrirePatient();
         }catch(IOException e){
             System.out.println("IOException");
         }
