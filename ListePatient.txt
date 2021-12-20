@@ -1,2 +1,4 @@
 {client numero  nom='v', prenom='v', NbSScoial='v', dateNaissance='v'}
 {client numero  nom='nassim', prenom='le bg ', NbSScoial='141414141', dateNaissance='j'ai oublié'}
+neron /martin/010215021021/01082003
+nassim/le bg /141414141/j'ai oublié

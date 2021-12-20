@@ -2,16 +2,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
-
+//import java.util.Scanner;
 
 public class Patient {
    
     public String nom;
     public String prenom;
     public String NbSScoial;
-    public String dateNaissance;
-   
+    public String dateNaissance; 
 
     // getters setters =========
     public String getNom() {
@@ -50,15 +48,14 @@ public class Patient {
     public Patient(){
     }
 
-    public Patient(String nom, String prenom, String NbSScoial, String dateNaissance) {
+    public Patient(String nom, String prenom, String NbSScoial, String dateNaissance) throws NbSecuriteSocialeException {
         this.nom = nom;
         this.prenom = prenom;
         this.NbSScoial = NbSScoial;
         this.dateNaissance = dateNaissance;
 
     }
-       
-    
+        
     public void ecrirePatient()throws IOException {
         // si pas de fichier existants on en cree un sinom on ecris dedans
         File f = new File("ListePatient.txt");
@@ -78,13 +75,8 @@ public class Patient {
 
     @Override
    public  String toString() {
-        return "{"+
-            " nom='" + getNom() + "'" +
-            ", prenom='" + getPrenom() + "'" +
-            ", NbSScoial='" + getNbSScoial() + "'" +
-            ", dateNaissance='" + getDateNaissance() + "'" +
-            "}\n";
+        return   getNom() + "/" + getPrenom() + "/" + getNbSScoial() + "/" +  getDateNaissance() +"\n";
             
     }
-
+    
 }

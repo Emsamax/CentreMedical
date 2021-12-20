@@ -12,8 +12,24 @@ public class Main {
         System.out.println("prenom patient");
         String prenom = sc.nextLine();
 
-        System.out.println("numero securite sociale patient");
-        String NbSSocial = sc.nextLine();
+        System.out.println("numero securite sociale patient 13 chiffres max");
+        boolean ok = false;
+        
+        // gestion de l'exception de marche pas 
+        String NbSSocial = "";
+        while(!ok){
+            try{
+                NbSSocial = sc.nextLine();
+                ok = true;
+                if(NbSSocial.length()>13){
+                    throw new NbSecuriteSocialeException("erreur; il ya plus de 13 chiffres");
+                }
+            }catch( NbSecuriteSocialeException e){
+                System.out.println("mauvaise entrée");
+            }
+            
+            
+        }
     //  = numero seciurite sociale 
         System.out.println("date  de naissance patient");
         String dateNaissance = sc.nextLine();
