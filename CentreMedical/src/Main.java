@@ -44,6 +44,12 @@ public class Main {
             System.out.println("IOException");
         }
         
+        System.out.println("patient a supprimer ");
+        try{
+            pat2.supprimerPatient("nassim");
+        }catch(IOException e){
+            System.out.println("sdfgqsdfhwertdhwdfgnwdfgn");
+        }
     }
 }
 
