@@ -15,7 +15,7 @@ public class Main {
         System.out.println("numero securite sociale patient 13 chiffres max");
         boolean ok = false;
         
-        // gestion de l'exception de marche pas 
+        // gestion de l'exception ne marche pas 
         String NbSSocial = "";
         while(!ok){
             try{
