@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
    
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
        
         System.out.println("nom patient");
@@ -13,6 +13,7 @@ public class Main {
         String prenom = sc.nextLine();
 
         System.out.println("numero securite sociale patient 13 chiffres max");
+<<<<<<< HEAD
         boolean ok = false;
         
         // gestion de l'exception ne marche pas 
@@ -31,6 +32,12 @@ public class Main {
             
         }
     //  = numero seciurite sociale 
+=======
+        String  NbSSocial = sc.nextLine();
+        verif(NbSSocial);
+
+
+>>>>>>> 0d6e3ff07e71d67793be6bdfdb13e5df6e7b1678
         System.out.println("date  de naissance patient");
         String dateNaissance = sc.nextLine();
         
@@ -44,12 +51,32 @@ public class Main {
             System.out.println("IOException");
         }
         
-        System.out.println("patient a supprimer ");
-        try{
-            pat2.supprimerPatient("nassim");
-        }catch(IOException e){
-            System.out.println("sdfgqsdfhwertdhwdfgnwdfgn");
+        
+    }
+
+    public static void verif(String NbSSocial) throws IOException{
+
+     //  = numero seciurite sociale 
+     // verification nombre si c'est des chiffres //si il y en a 13 pile
+
+     char Chiffre =' ';
+     if(NbSSocial.length()<13 || NbSSocial.length()>13){
+         throw new NbSecuriteSocialeException("pas le bon nombre de caracteres saisis ");
+     }
+     // initialisation du tableau de l'alphabet
+     char Alphabet[] = new char [26];
+     for(int i=0; i<NbSSocial.length();i++){
+        Chiffre = NbSSocial.charAt(i);
+         // utilisation ascii
+        for(int j =97;j<122;j++){
+            if(Chiffre ==(Alphabet[i])){
+                throw new IOException(" erreur de  saisi");
+                
         }
+
+     }
+     
+     }
     }
 }
 
