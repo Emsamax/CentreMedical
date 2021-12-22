@@ -90,7 +90,7 @@ public class Patient {
                     System.out.println("fichier du patient "+nomPatient+"trouvé" );
                     System.out.println(str);
                     lectureFichier.close();
-                }else throw new PatientInexistantException("===============Ce patient n'existe pas================");
+                }else throw new PatientInexistantException("===Ce patient n'existe pas===");
                 lectureFichier.close();
 
             }
