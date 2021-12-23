@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.Scanner;
 
-public class Patient {
+public class patient {
    
     public String nom;
     public String prenom;
@@ -21,11 +21,10 @@ public class Patient {
     // getters setters =========
     public String getNom() {
         return this.nom;
-=======
+
 public class patient {
     public static void main(String[] args) {
-        // qsdgqsfg
-        // homer kitoko
+       
 >>>>>>> Stashed changes
     }
 
@@ -142,3 +141,4 @@ public class patient {
     }
     
 }
+    
