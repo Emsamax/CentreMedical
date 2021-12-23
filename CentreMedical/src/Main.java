@@ -23,7 +23,7 @@ public class Main {
         System.out.println("date  de naissance patient");
         String dateNaissance = sc.nextLine();
         
-        Patient pat = new Patient(nom, prenom, NbSSocial, dateNaissance);
+        patient pat = new patient(nom, prenom, NbSSocial, dateNaissance);
         
         
         try{
