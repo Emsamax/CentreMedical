@@ -103,6 +103,8 @@ public class patient {
         }
         //try catch dans le main
 
+
+        
         public void supprimerPatient(String nomPatient)throws FileNotFoundException{
             FileReader lecteur = new FileReader("Patient.txt");
             Scanner lectureFichier = new Scanner(lecteur);
