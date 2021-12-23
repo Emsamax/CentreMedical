@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.Scanner;
 
-public class Patient {
+public class patient {
    
     public String nom;
     public String prenom;
@@ -53,7 +53,7 @@ public class Patient {
 
 //=======================================
 
-    public Patient(){
+    public patient(){
     }
 
     public Patient(String nom, String prenom, String NbSScoial, String dateNaissance) {
