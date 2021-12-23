@@ -26,6 +26,8 @@ public class Main {
         patient pat = new patient(nom, prenom, NbSSocial, dateNaissance);
         
         
+
+        
         try{
             pat.ecrirePatient();
         }catch(IOException e){
