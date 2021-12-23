@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,6 +21,12 @@ public class Patient {
     // getters setters =========
     public String getNom() {
         return this.nom;
+=======
+public class patient {
+    public static void main(String[] args) {
+        // qsdgqsfg
+        // homer kitoko
+>>>>>>> Stashed changes
     }
 
     public void setNom(String nom) {
