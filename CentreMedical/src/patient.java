@@ -83,7 +83,7 @@ public class Patient {
         }
         // try catch dans le main
 
-        public void rechercherPatient(String nomPatient) throws FileNotFoundException, PatientInexistantException{
+        public void rechercherPatient(String nomPatient, String) throws FileNotFoundException, PatientInexistantException{
           //lien avec le fichier Patient.txt et scanner
             FileReader lecteur = new FileReader("Patient.txt");
             Scanner lectureFichier = new Scanner(lecteur);
