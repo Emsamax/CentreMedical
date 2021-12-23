@@ -21,11 +21,9 @@ public class Main {
         String dateNaissance = sc.nextLine();
         
         Patient pat = new Patient(nom, prenom, NbSSocial, dateNaissance );
-        Patient pat2 = new Patient("nassim", "le bg ", "141414141", "j'ai oublié" );
-
+        
         try{
             pat.ecrirePatient();
-            pat2.ecrirePatient();
         }catch(IOException e){
             System.out.println("IOException");
         }

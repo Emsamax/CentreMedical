@@ -1,14 +1,13 @@
-{client numero  nom='v', prenom='v', NbSScoial='v', dateNaissance='v'}
-{client numero  nom='nassim', prenom='le bg ', NbSScoial='141414141', dateNaissance='j'ai oublié'}
-neron /martin/010215021021/01082003
-nassim/le bg /141414141/j'ai oublié
-martin/neron/12011/01082003
-nassim/le bg /141414141/j'ai oublié
-martin/neron/111$/01082003
-nassim/le bg /141414141/j'ai oublié
-martin/neron/1010101010101/01082003
-nassim/le bg /141414141/j'ai oublié
-martin/neron/12032152df210/01082003
-nassim/le bg /141414141/j'ai oublié
-emilien /le bg de merde /1231233211233/14092003
-nassim/le bg /141414141/j'ai oublié
+1/martin/neron/1111111111111/01082003
+
+1/martin/neron/1111111111111/01082003
+1/baptiste/ffff/1111111111111/01082003
+1/f/ds/1236547896325/223366552
+1/neron/mdfmdfmdf/1236547896325/010822003
+0/d/d/2222222222222/1236552
+0/martin/neron/1111111111111/01082003
+1/nerov/fg<sdfg/1111144444555/2233652
+1/j/j/2222222222222/01012020120
+1/martin/sg<dfgwd/2222222222222/01082003
+1/eth/fgh/1114445557775/0101010
+1/martion/s<dg</1236547899874/2222

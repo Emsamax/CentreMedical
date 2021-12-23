@@ -14,6 +14,8 @@ public class Patient {
     public String prenom;
     public String NbSScoial;
     public String dateNaissance; 
+    static int Compteur= 0;
+    
 
     // getters setters =========
     public String getNom() {
@@ -47,17 +49,21 @@ public class Patient {
     public void setDateNaissance(String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
+
+   
+
 //=======================================
 
     public Patient(){
     }
 
-    public Patient(String nom, String prenom, String NbSScoial, String dateNaissance) throws NbSecuriteSocialeException {
+    public Patient(String nom, String prenom, String NbSScoial, String dateNaissance) {
         this.nom = nom;
         this.prenom = prenom;
         this.NbSScoial = NbSScoial;
         this.dateNaissance = dateNaissance;
-
+        Compteur++;
+ 
     }
         
     public void ecrirePatient()throws IOException {
@@ -124,7 +130,7 @@ public class Patient {
 
     @Override
    public  String toString() {
-        return   getNom() + "/" + getPrenom() + "/" + getNbSScoial() + "/" +  getDateNaissance() +"\n";
+        return   Compteur +"/"+ getNom() + "/" + getPrenom() + "/" + getNbSScoial() + "/" +  getDateNaissance() +"\n";
             
     }
     
