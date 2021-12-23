@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.Scanner;
 
-public class patient {
+public class Patient {
    
     public String nom;
     public String prenom;
@@ -21,11 +21,6 @@ public class patient {
     // getters setters =========
     public String getNom() {
         return this.nom;
-
-public class patient {
-    public static void main(String[] args) {
-       
->>>>>>> Stashed changes
     }
 
     public void setNom(String nom) {
@@ -56,8 +51,6 @@ public class patient {
         this.dateNaissance = dateNaissance;
     }
 
-   
-
 //=======================================
 
     public Patient(){
@@ -68,7 +61,7 @@ public class patient {
         this.prenom = prenom;
         this.NbSScoial = NbSScoial;
         this.dateNaissance = dateNaissance;
-        Compteur++;
+        
  
     }
         

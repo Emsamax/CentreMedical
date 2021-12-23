@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+
+
 public class Main {
    
     public static void main(String[] args) throws IOException {
@@ -13,35 +15,16 @@ public class Main {
         String prenom = sc.nextLine();
 
         System.out.println("numero securite sociale patient 13 chiffres max");
-<<<<<<< HEAD
-        boolean ok = false;
-        
-        // gestion de l'exception ne marche pas 
-        String NbSSocial = "";
-        while(!ok){
-            try{
-                NbSSocial = sc.nextLine();
-                ok = true;
-                if(NbSSocial.length()>13){
-                    throw new NbSecuriteSocialeException("erreur; il ya plus de 13 chiffres");
-                }
-            }catch( NbSecuriteSocialeException e){
-                System.out.println("mauvaise entrée");
-            }
-            
-            
-        }
-    //  = numero seciurite sociale 
-=======
+
         String  NbSSocial = sc.nextLine();
         verif(NbSSocial);
 
 
->>>>>>> 0d6e3ff07e71d67793be6bdfdb13e5df6e7b1678
         System.out.println("date  de naissance patient");
         String dateNaissance = sc.nextLine();
         
-        Patient pat = new Patient(nom, prenom, NbSSocial, dateNaissance );
+        Patient pat = new Patient(nom, prenom, NbSSocial, dateNaissance);
+        
         
         try{
             pat.ecrirePatient();
