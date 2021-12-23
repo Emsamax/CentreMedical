@@ -56,7 +56,7 @@ public class patient {
     public patient(){
     }
 
-    public Patient(String nom, String prenom, String NbSScoial, String dateNaissance) {
+    public patient(String nom, String prenom, String NbSScoial, String dateNaissance) {
         this.nom = nom;
         this.prenom = prenom;
         this.NbSScoial = NbSScoial;
