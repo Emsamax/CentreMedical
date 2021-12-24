@@ -84,31 +84,11 @@ public medecin(String nompat, String nommedecin, String dateconsultation, String
         out.write(this.toString());
         System.out.println();
         out.close(); 
-        }
-            
+        }   
         
         }
-        public void rechercherconsultation(String nommedecin) throws FileNotFoundException, consultationInexistantException{
-            //lien avec le fichier Patient.txt et scanner
-              FileReader lecteur = new FileReader("consultation.txt");
-              try (Scanner lectureFichier = new Scanner(lecteur)) {
-                  while(lectureFichier.hasNextLine()){
-                      String str = lectureFichier.nextLine();
-                      String[] mots = str.split("/");
-                      // vérifie le nom qui est a la 2eme palce du tableau
-                      if(mots[1].equalsIgnoreCase(nommedecin)){
-                          System.out.println("fichier du patient "+nommedecin+"trouvé" );
-                          System.out.println(str);
-                          break;
-                          
-                          
-                      }else throw new PatientInexistantException("===Ce medecin n'existe pas===");
-                      
-  
-                  }
-                  lectureFichier.close();
-              }
-          }
+      
+          
     public void supprimerconsultation(){
     
     }
