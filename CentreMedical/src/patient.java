@@ -19,7 +19,7 @@ public class patient {
     public String prenom;
     public String NbSScoial;
     public String dateNaissance; 
-    private static int Compteur= 0;
+    static int Compteur= 0;
     
 
     // getters setters =========
@@ -96,16 +96,21 @@ public class patient {
                     String[] mots = str.split("/");
                     // vérifie le nom qui est a la 2eme palce du tableau
                     if(mots[1].equalsIgnoreCase(nomPatient)){
+
                         System.out.println("fichier du patient "+nomPatient+"  trouvé" );
                         System.out.println( getNom() + "/" + getPrenom() + "/" + getNbSScoial() + "/" +  getDateNaissance() +"\n"); 
                         break ;
 
+
                     }else throw new PatientInexistantException("===Ce patient n'existe pas===");
+                    
+
                 }
                 lectureFichier.close();
             }
         }
         //try catch dans le main
+
 
         public void supprimerPatient(String nomPatient)throws IOException{
             File Fichier = new File("ListePatient.txt");
@@ -117,7 +122,6 @@ public class patient {
            
 
             while((Ligne = lecture.readLine()) != null){
-                System.out.println(Ligne);
                 String[] mots = Ligne.split("/");
                 if(mots[1].equalsIgnoreCase(nomPatient)){
                     System.out.println("");
@@ -139,6 +143,28 @@ public class patient {
                 System.out.println("Impossible de renommer le fichier");
               }
             }
+
+        public void modifierpatient(String motard)throws FileNotFoundException{
+            FileReader lecteur = new FileReader("ListePatient.txt");
+            try (Scanner lectureFichier = new Scanner(lecteur)) {
+                while(lectureFichier.hasNextLine()){
+                    String str = lectureFichier.nextLine();
+                    String[] mots = str.split("/");
+                    // vérifie le nom qui est a la 2eme palce du tableau
+                    if(mots[1].equalsIgnoreCase(motard)&&mots[2].equalsIgnoreCase(motard)&&mots[3].equalsIgnoreCase(motard)){
+                        System.out.println("fichier du patient "+motard+"trouvé" );
+                        System.out.println(str);
+                        break;
+                        
+                        
+                    }else throw new PatientInexistantException("===Ce patient n'existe pas===");
+                    
+
+                }
+
+                lectureFichier.close();
+            }
+        }
 
     @Override
    public  String toString() {
