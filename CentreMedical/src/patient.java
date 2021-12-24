@@ -85,22 +85,39 @@ public class patient {
 
         public void rechercherPatient(String nomPatient) throws FileNotFoundException, PatientInexistantException{
           //lien avec le fichier Patient.txt et scanner
-            FileReader lecteur = new FileReader("Patient.txt");
+            FileReader lecteur = new FileReader("ListePatient.txt");
             Scanner lectureFichier = new Scanner(lecteur);
             while(lectureFichier.hasNextLine()){
                 String str = lectureFichier.nextLine();
                 String[] mots = str.split("/");
-                // vérifie le nom qui est a la 1ere palce du tableau
-                if(mots[0].equalsIgnoreCase(nomPatient)){
+                    
+                int index = str.indexOf(nomPatient);
+               
+               
+                        // marche mais affiche pleins de fois n'existe pas avant d'afficher la bonne ligne 
+                        // problème : pas de equals ignore case
+                      if(index == - 1) {
+                        
+                        System.out.println("Le mot "+nomPatient+" n'existe pas.");
+                        
+                      } else {
+                        System.out.println("Le mot "+nomPatient+" existe .");
+                        break;
+                      }
+                    }
+                  }
+
+                /* vérifie le nom qui est a la 1ere palce du tableau
+                if(mots[1].equalsIgnoreCase(nomPatient)){
                     System.out.println("fichier du patient "+nomPatient+"trouvé" );
                     System.out.println(str);
                     lectureFichier.close();
                 }else throw new PatientInexistantException("===Ce patient n'existe pas===");
                 lectureFichier.close();
-
-            }
+                */
+           // }
             
-        }
+        //}
         //try catch dans le main
 
 
