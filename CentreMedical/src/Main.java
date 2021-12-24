@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -25,7 +26,14 @@ public class Main {
         
         patient pat = new patient(nom, prenom, NbSSocial, dateNaissance);
         
-        
+        try {
+           pat.rechercherPatient ("ETH");
+        }catch( FileNotFoundException e){
+            System.out.println("le fichier n'a pas été trouvé");
+        }catch(PatientInexistantException e){
+            System.out.println("le patient n'a pas été trouvé");
+
+        }
 
         
         try{
