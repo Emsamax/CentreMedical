@@ -130,6 +130,33 @@ public class patient {
 
         }
 
+        public void modifierpatient(String nom, String prenom, String NbSScoial, String dateNaissance)throws FileNotFoundException{
+            FileReader lecteur = new FileReader("ListePatient.txt");
+            try (Scanner lectureFichier = new Scanner(lecteur)) {
+                while(lectureFichier.hasNextLine()){
+                    
+                        public static void main(String[] args) {
+                          
+                          String str = "Welcome to WayToLearnX";
+                          
+                          int index = str.indexOf("WayToLearnX");
+                          
+                          if(index == - 1) {
+                            System.out.println("Le mot WayToLearnX n'existe pas.");
+                          } else {
+                            System.out.println("Le mot WayToLearnX se trouve à l'index : "+ index);
+                          }
+                        }
+                      
+                        
+                        
+                    }else throw new 
+                    
+
+                }
+            }
+        }
+
     @Override
    public  String toString() {
         return   Compteur +"/"+ getNom() + "/" + getPrenom() + "/" + getNbSScoial() + "/" +  getDateNaissance() +"\n";
