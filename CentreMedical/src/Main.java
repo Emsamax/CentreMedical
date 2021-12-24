@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -28,8 +29,9 @@ public class Main {
         
         try{
             pat.ecrirePatient();
-        }catch(IOException e){
-            System.out.println("IOException");
+            pat.rechercherPatient("martin");
+        }catch( PatientInexistantException e){
+            System.out.println("ce patient n'existe pas");
         }
         
        

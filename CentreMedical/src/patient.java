@@ -83,23 +83,26 @@ public class patient {
         }
         // try catch dans le main
 
-        public void rechercherPatient(String nomPatient, String) throws FileNotFoundException, PatientInexistantException{
+        public void rechercherPatient(String nomPatient) throws FileNotFoundException, PatientInexistantException{
           //lien avec le fichier Patient.txt et scanner
-            FileReader lecteur = new FileReader("Patient.txt");
-            Scanner lectureFichier = new Scanner(lecteur);
-            while(lectureFichier.hasNextLine()){
-                String str = lectureFichier.nextLine();
-                String[] mots = str.split("/");
-                // vérifie le nom qui est a la 1ere palce du tableau
-                if(mots[0].equalsIgnoreCase(nomPatient)){
-                    System.out.println("fichier du patient "+nomPatient+"trouvé" );
-                    System.out.println(str);
-                    lectureFichier.close();
-                }else throw new PatientInexistantException("===Ce patient n'existe pas===");
-                lectureFichier.close();
+            FileReader lecteur = new FileReader("ListePatient.txt");
+            try (Scanner lectureFichier = new Scanner(lecteur)) {
+                while(lectureFichier.hasNextLine()){
+                    String str = lectureFichier.nextLine();
+                    String[] mots = str.split("/");
+                    // vérifie le nom qui est a la 2eme palce du tableau
+                    if(mots[1].equalsIgnoreCase(nomPatient)){
+                        System.out.println("fichier du patient "+nomPatient+"trouvé" );
+                        System.out.println(str);
+                        break;
+                        
+                        
+                    }else throw new PatientInexistantException("===Ce patient n'existe pas===");
+                    
 
+                }
+                lectureFichier.close();
             }
-            
         }
         //try catch dans le main
 
