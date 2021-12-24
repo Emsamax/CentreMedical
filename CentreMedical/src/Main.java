@@ -30,7 +30,7 @@ public class Main {
         try{
             pat.ecrirePatient();
             pat.rechercherPatient("martin");
-            pat.supprimerPatient("Baptiste");
+            pat.supprimerPatient("nerov");
         }catch( PatientInexistantException e){
             System.out.println("ce patient n'existe pas");
         }
