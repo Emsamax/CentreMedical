@@ -1,4 +1,6 @@
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,6 +10,8 @@ import java.io.PrintWriter;
 //import java.util.Scanner;
 import java.io.Reader;
 import java.util.Scanner;
+
+import javax.annotation.processing.Filer;
 
 public class patient {
    
@@ -92,11 +96,12 @@ public class patient {
                     String[] mots = str.split("/");
                     // vérifie le nom qui est a la 2eme palce du tableau
                     if(mots[1].equalsIgnoreCase(nomPatient)){
-                        System.out.println("fichier du patient "+nomPatient+"trouvé" );
-                        System.out.println(str);
-                        break;
-                        
-                        
+
+                        System.out.println("fichier du patient "+nomPatient+"  trouvé" );
+                        System.out.println( getNom() + "/" + getPrenom() + "/" + getNbSScoial() + "/" +  getDateNaissance() +"\n"); 
+                        break ;
+
+
                     }else throw new PatientInexistantException("===Ce patient n'existe pas===");
                     
 
@@ -106,16 +111,38 @@ public class patient {
         }
         //try catch dans le main
 
-        public void supprimerPatient(String nomPatient)throws FileNotFoundException{
+
+        public void supprimerPatient(String nomPatient)throws IOException{
+            File Fichier = new File("ListePatient.txt");
+            File ModifFichier = new File("ListePatientModifie.txt");
+            FileReader FileReader = new FileReader(Fichier);
+            BufferedReader lecture = new BufferedReader(FileReader);
+            FileWriter fileWriter = new FileWriter(ModifFichier);
+            String Ligne = null;
            
-          
+            while((Ligne = lecture.readLine()) != null){
+                String[] mots = Ligne.split("/");
+                if(mots[1].equalsIgnoreCase(nomPatient)){
+                    System.out.println("");
+                }else{
+                    fileWriter.write(Ligne);
+                    fileWriter.write("\n");
+                }
 
-                
-
-                
+                 fileWriter.flush();
+            }
+            lecture.close();
+            fileWriter.close();
+            Fichier.delete();
             
+           
+            if(ModifFichier.renameTo(Fichier)){
+                System.out.println("Le fichier a été renommé avec succès");
+              }else{
+                System.out.println("Impossible de renommer le fichier");
+              }
+            }
 
-        }
 
         public void modifierpatient(String motard)throws FileNotFoundException{
             FileReader lecteur = new FileReader("ListePatient.txt");

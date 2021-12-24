@@ -44,9 +44,9 @@ public class Main {
         String appareil = sc.nextLine();
 
         System.out.println("appareil octroyé ?");
-        String octroyé = sc.nextLine();
+        String octroye = sc.nextLine();
         
-        medecin consul = new medecin (nompat , nommedecin, dateconsultation,pathologie,  appareil, octroyé);
+        medecin consul = new medecin (nompat , nommedecin, dateconsultation,pathologie,  appareil, octroye);
         consul.ecrireconsultation();
         try{
             pat.ecrirePatient();
@@ -54,12 +54,6 @@ public class Main {
         }catch( PatientInexistantException e){
             System.out.println("ce patient n'existe pas");
         }
-        
-        
-           
-            
-        
-       
         
     }
 
