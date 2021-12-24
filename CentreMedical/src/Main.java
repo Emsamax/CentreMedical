@@ -26,13 +26,38 @@ public class Main {
         
         patient pat = new patient(nom, prenom, NbSSocial, dateNaissance);
         
+
+        System.out.println("nom patient consultation");
+        String nompat = sc.nextLine();
+
+        System.out.println("nom medecin");
+        String nommedecin = sc.nextLine();
+
+        System.out.println("date consultation");
+        String dateconsultation = sc.nextLine();
+
+        System.out.println("pathologie");
+        String pathologie = sc.nextLine();
+
+
+        System.out.println("nom appareil");
+        String appareil = sc.nextLine();
+
+        System.out.println("appareil octroyé ?");
+        String octroyé = sc.nextLine();
         
+        medecin consul = new medecin (nompat , nommedecin, dateconsultation,pathologie,  appareil, octroyé);
+        consul.ecrireconsultation();
         try{
             pat.ecrirePatient();
             pat.rechercherPatient("martin");
         }catch( PatientInexistantException e){
             System.out.println("ce patient n'existe pas");
         }
+        
+        
+           
+            
         
        
         
