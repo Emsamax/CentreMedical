@@ -15,7 +15,7 @@ public class patient {
     public String prenom;
     public String NbSScoial;
     public String dateNaissance; 
-    private static int Compteur= 0;
+    static int Compteur= 0;
     
 
     // getters setters =========
@@ -92,11 +92,14 @@ public class patient {
                     String[] mots = str.split("/");
                     // vérifie le nom qui est a la 2eme palce du tableau
                     if(mots[1].equalsIgnoreCase(nomPatient)){
-                        System.out.println("fichier du patient "+nomPatient+"  trouvé" );
-                        System.out.println(getNom() + getPrenom() + getNbSScoial() +getDateNaissance()); 
-                        break ;
-
+                        System.out.println("fichier du patient "+nomPatient+"trouvé" );
+                        System.out.println(str);
+                        break;
+                        
+                        
                     }else throw new PatientInexistantException("===Ce patient n'existe pas===");
+                    
+
                 }
                 lectureFichier.close();
             }
@@ -104,21 +107,8 @@ public class patient {
         //try catch dans le main
 
         public void supprimerPatient(String nomPatient)throws FileNotFoundException{
-            FileReader lecteur = new FileReader("Patient.txt");
-            Scanner lectureFichier = new Scanner(lecteur);
-           // recherche du patient en question
-            while(lectureFichier.hasNextLine()){
-                String str = lectureFichier.nextLine();
-                String[] mots = str.split("/");
-                // vérifie le nom qui est a la 1ere palce du tableau
-                if(mots[0].equalsIgnoreCase(nomPatient)){
-                    String chaine = "";
-                    for(int i =0; i< mots.length;i++){
-                        chaine += mots[i];
-                    }
-                    chaine.replace(chaine,"");
-                    // pas fini il faut decaler les lignes suivantes d'une ligne au dessu puis les réecrires;  
-
+           
+          
 
                 }
 
@@ -127,30 +117,25 @@ public class patient {
 
         }
 
-        public void modifierpatient(String nom, String prenom, String NbSScoial, String dateNaissance)throws FileNotFoundException{
+        public void modifierpatient(String motard)throws FileNotFoundException{
             FileReader lecteur = new FileReader("ListePatient.txt");
             try (Scanner lectureFichier = new Scanner(lecteur)) {
                 while(lectureFichier.hasNextLine()){
-                    
-                        public static void main(String[] args) {
-                          
-                          String str = "Welcome to WayToLearnX";
-                          
-                          int index = str.indexOf("WayToLearnX");
-                          
-                          if(index == - 1) {
-                            System.out.println("Le mot WayToLearnX n'existe pas.");
-                          } else {
-                            System.out.println("Le mot WayToLearnX se trouve à l'index : "+ index);
-                          }
-                        }
-                      
+                    String str = lectureFichier.nextLine();
+                    String[] mots = str.split("/");
+                    // vérifie le nom qui est a la 2eme palce du tableau
+                    if(mots[1].equalsIgnoreCase(motard)&&mots[2].equalsIgnoreCase(motard)&&mots[3].equalsIgnoreCase(motard)){
+                        System.out.println("fichier du patient "+motard+"trouvé" );
+                        System.out.println(str);
+                        break;
                         
                         
-                    }else throw new 
+                    }else throw new PatientInexistantException("===Ce patient n'existe pas===");
                     
 
                 }
+
+                lectureFichier.close();
             }
         }
 
