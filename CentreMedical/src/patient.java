@@ -110,10 +110,10 @@ public class patient {
            
           
 
-                }
+                
 
                 
-            }
+            
 
         }
 
@@ -144,6 +144,8 @@ public class patient {
         return   Compteur +"/"+ getNom() + "/" + getPrenom() + "/" + getNbSScoial() + "/" +  getDateNaissance() +"\n";
             
     }
+
+  
     
 }
     
