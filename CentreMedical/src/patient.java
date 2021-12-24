@@ -15,7 +15,7 @@ public class patient {
     public String prenom;
     public String NbSScoial;
     public String dateNaissance; 
-    static int Compteur= 0;
+    private static int Compteur= 0;
     
 
     // getters setters =========
@@ -92,14 +92,11 @@ public class patient {
                     String[] mots = str.split("/");
                     // vérifie le nom qui est a la 2eme palce du tableau
                     if(mots[1].equalsIgnoreCase(nomPatient)){
-                        System.out.println("fichier du patient "+nomPatient+"trouvé" );
-                        System.out.println(str);
-                        break;
-                        
-                        
-                    }else throw new PatientInexistantException("===Ce patient n'existe pas===");
-                    
+                        System.out.println("fichier du patient "+nomPatient+"  trouvé" );
+                        System.out.println(getNom() + getPrenom() + getNbSScoial() +getDateNaissance()); 
+                        break ;
 
+                    }else throw new PatientInexistantException("===Ce patient n'existe pas===");
                 }
                 lectureFichier.close();
             }
