@@ -1,19 +1,25 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.KeyException;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
 
 public class BasePatient {
-    public string path;
+    public String path;
     private HashMap <String, Patient> base;
 
 
-    public basePatient(string path) {
+    public BasePatient(String path) {
         this.path = path;
         this.base = new HashMap<String, Patient>();
     }
 
-    public void load(){
+    public void load() throws FileNotFoundException{
         FileReader lecteur = new FileReader(this.path);
             try (Scanner lectureFichier = new Scanner(lecteur)) {
                 while(lectureFichier.hasNextLine()){
@@ -26,7 +32,7 @@ public class BasePatient {
 
             }
     }
-    public void save(){
+    public void save() throws IOException{
         File Fichier = new File(this.path);
         File ModifFichier = new File(this.path+".tmp");
         FileWriter fileWriter = new FileWriter(this.path+".tmp");
@@ -50,7 +56,7 @@ public class BasePatient {
         }
     }
 
-    public Patient rechercherPatient(String nbSS){
+    public Patient rechercherPatient(String nbSS) throws KeyException{
         if(this.base.containsKey(nbSS) == true){
             Patient patient = this.base.get(nbSS);
             return patient;
@@ -58,12 +64,12 @@ public class BasePatient {
         
     }
 
-    public void ajouterPatient(String nom, string prenom, String nbSS, String dateNaissance){
+    public void ajouterPatient(String nom, String prenom, String nbSS, String dateNaissance){
         if(this.base.containsKey(nbSS) == true ){
             throw new KeyAlreadyExistsException(" le patient existe  deja");
         }else{
             Patient pat = new Patient(nom, prenom, nbSS, dateNaissance);
-            this.base.add(nbSS, pat);
+            this.base.put(nbSS, pat);
         }
     }
     public void supprimerPatient(String nbSS){
@@ -73,7 +79,7 @@ public class BasePatient {
         
     }
 
-    public Patient modifierPatient(String nom, string prenom, String nbSS, String dateNaissance){
+    public Patient modifierPatient(String nom, String prenom, String nbSS, String dateNaissance) throws KeyException{
         //appel de la methode avec les attributs du patient modifié.
         //ne pas changer nbSS
         if(this.base.containsKey(nbSS) == true){
