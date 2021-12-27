@@ -7,6 +7,8 @@ import java.security.KeyException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.management.openmbean.KeyAlreadyExistsException;
+
 public class BaseConsultation {
     public String path;
     private HashMap <Integer, Consultation> base;
@@ -16,22 +18,34 @@ public class BaseConsultation {
     }
 
     
-    public Consultation rechercher(int ID){
-        //TODO:
-        return new Consultation();
+    public Consultation rechercherConsultation(int ID) throws KeyException{
+        if(this.base.containsKey(ID)){
+            return this.base.get(ID);
+        }else throw new KeyException("la consultation n'existe pas");
+       
     }
 
-    public void ajouter(Consultation consultation){
-        //TODO:
+    public void ajouterConsultation(Consultation consultation){
+        if (this.base.containsKey(consultation.ID)) {
+            throw new KeyAlreadyExistsException(" la consultation existe déjà");
+        } else {
+            this.base.put(consultation.ID, consultation);
+        }
     }
 
-    public void supprimer(int ID){
-        //TODO:
+    public void supprimerConsultation(int ID){
+            if (!this.base.containsKey(ID)) {
+                throw new KeyAlreadyExistsException(" la consultation n'existe pas");
+            } else
+                this.base.remove(ID);
     }
 
-    public Consultation modifier(int ID, Consultation consultation){
-        //TODO:
-        return consultation;
+    public void modifierConsultation( Consultation modifConsultation) throws KeyException{
+        // appel de la methode avec la consultation modifié.
+        if (this.base.containsKey(modifConsultation.ID)) {
+            this.base.replace(modifConsultation.ID, modifConsultation);
+        } else
+            throw new KeyException("la consultation n'existe pas");
     }
 
     public void load(BasePatient base) throws FileNotFoundException, KeyException{
