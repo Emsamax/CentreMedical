@@ -1,7 +1,7 @@
 public class Technicien {
     
-    public void octroyerAppareil(Consultation consultation){
-        consultation.octroyerAppareil();
+    public void validerAppareilMedical(Consultation consultation){
+        consultation.validerAppareilMedical();
     }
     
 }
