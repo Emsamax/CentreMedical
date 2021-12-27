@@ -11,82 +11,90 @@ import javax.management.openmbean.KeyAlreadyExistsException;
 
 public class BasePatient {
     public String path;
-    private HashMap <String, Patient> base;
-
+    private HashMap<String, Patient> base;
 
     public BasePatient(String path) {
         this.path = path;
-        this.base = new HashMap<String, Patient>();
+        this.base = createBase();
     }
+    
+    private HashMap<String, Patient> createBase(){
+        // cree nv base vide
+        HashMap<String, Patient> base = new HashMap<String, Patient>();
+        return base;
+    }
+        
 
     public void load() throws FileNotFoundException{
+        this.base = createBase();
         FileReader lecteur = new FileReader(this.path);
-            try (Scanner lectureFichier = new Scanner(lecteur)) {
-                while(lectureFichier.hasNextLine()){
-                    String str = lectureFichier.nextLine();
-                    String[] mots = str.split("/");
-                    //mots = nom , prenom , nbSS , date naissance
-                    Patient pat = new Patient(mots[0],mots[1],mots[2],mots[3]);
-                    this.base.put(pat.nbSS, pat);
-                }
-
+        Scanner lectureFichier = new Scanner(lecteur);
+        while(lectureFichier.hasNextLine()){
+            String str = lectureFichier.nextLine();
+            String[] mots = str.split("/");
+            //mots = nom , prenom , nbSS , date naissance
+            Patient pat = new Patient(mots[0],mots[1],mots[2],mots[3]);
+            this.base.put(pat.nbSS, pat);
             }
+        
+        lectureFichier.close();    
+            
     }
-    public void save() throws IOException{
+
+    public void save() throws IOException {
         File Fichier = new File(this.path);
-        File ModifFichier = new File(this.path+".tmp");
-        FileWriter fileWriter = new FileWriter(this.path+".tmp");
+        File ModifFichier = new File(this.path + ".tmp");
+        FileWriter fileWriter = new FileWriter(this.path + ".tmp");
         // boucle sur toutes les clés du hashmap.
-        for(String nbSS : this.base.keySet()){
+        for (String nbSS : this.base.keySet()) {
             Patient pat = this.base.get(nbSS);
-            String line = pat.nom +"/"+pat.prenom+"/"+pat.nbSS+"/"+pat.dateNaissance;
+            String line = pat.nom + "/" + pat.prenom + "/" + pat.nbSS + "/" + pat.dateNaissance;
 
             fileWriter.write(line);
             fileWriter.write("\n");
- 
+
         }
         fileWriter.flush();
         fileWriter.close();
-       
-        if(ModifFichier.renameTo(Fichier)){
+
+        if (ModifFichier.renameTo(Fichier)) {
             System.out.println("Le fichier a été renommé avec succès");
-          }else{
+        } else {
             System.out.println("Impossible de renommer le fichier");
-         
+
         }
     }
 
-    public Patient rechercherPatient(String nbSS) throws KeyException{
-        if(this.base.containsKey(nbSS) == true){
-            Patient patient = this.base.get(nbSS);
-            return patient;
-        }else throw new KeyException("le patient n'existe pas");
-        
+    public Patient rechercherPatient(String nbSS) throws KeyException {
+        if (this.base.containsKey(nbSS)) {
+            return this.base.get(nbSS);
+        } else
+            throw new KeyException("le patient n'existe pas");
+
     }
 
-    public void ajouterPatient(String nom, String prenom, String nbSS, String dateNaissance){
-        if(this.base.containsKey(nbSS) == true ){
-            throw new KeyAlreadyExistsException(" le patient existe  deja");
-        }else{
-            Patient pat = new Patient(nom, prenom, nbSS, dateNaissance);
-            this.base.put(nbSS, pat);
+    public void ajouterPatient(Patient patient) {
+        if (this.base.containsKey(patient.nbSS)) {
+            throw new KeyAlreadyExistsException(" le patient existe déjà");
+        } else {
+            this.base.put(patient.nbSS, patient);
         }
     }
-    public void supprimerPatient(String nbSS){
-        if(this.base.containsKey(nbSS) == false ){
-            throw new KeyAlreadyExistsException(" le patient n'existe  pas");
-        }else this.base.remove(nbSS);
-        
+
+    public void supprimerPatient(String nbSS) {
+        if (!this.base.containsKey(nbSS)) {
+            throw new KeyAlreadyExistsException(" le patient n'existe pas");
+        } else
+            this.base.remove(nbSS);
+
     }
 
-    public Patient modifierPatient(String nom, String prenom, String nbSS, String dateNaissance) throws KeyException{
-        //appel de la methode avec les attributs du patient modifié.
-        //ne pas changer nbSS
-        if(this.base.containsKey(nbSS) == true){
-            Patient patModif = new Patient(nom, prenom, nbSS, dateNaissance);
-            this.base.replace(nbSS, patModif);
-            return patModif;
-        }else throw new KeyException("le patient n'existe pas");
+    public void modifierPatient(Patient modifPatient) throws KeyException {
+        // appel de la methode avec le patient modifié.
+        if (this.base.containsKey(modifPatient.nbSS)) {
+            this.base.replace(modifPatient.nbSS, modifPatient);
+        } else
+            throw new KeyException("le patient n'existe pas");
 
     }
 }

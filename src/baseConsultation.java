@@ -15,8 +15,14 @@ public class BaseConsultation {
 
     public BaseConsultation(String path) {
         this.path = path;
+        this.base = createBase();
     }
 
+    private HashMap<Integer, Consultation> createBase(){
+        // cree nv base vide
+        HashMap<Integer, Consultation> base = new HashMap<Integer, Consultation>();
+        return base;
+    }
     
     public Consultation rechercherConsultation(int ID) throws KeyException{
         if(this.base.containsKey(ID)){
@@ -40,7 +46,7 @@ public class BaseConsultation {
                 this.base.remove(ID);
     }
 
-    public void modifierConsultation( Consultation modifConsultation) throws KeyException{
+    public void modifierConsultation(Consultation modifConsultation) throws KeyException{
         // appel de la methode avec la consultation modifié.
         if (this.base.containsKey(modifConsultation.ID)) {
             this.base.replace(modifConsultation.ID, modifConsultation);
@@ -49,26 +55,27 @@ public class BaseConsultation {
     }
 
     public void load(BasePatient base) throws FileNotFoundException, KeyException{
-     /*
-     lis le fichier.txt (path)
-     cree les consultations (peupler la base)
-     *recupere l'objet patient via son numero de securite sociale
-     */
-     FileReader lecteur = new FileReader(this.path);
-     Scanner lectureFichier = new Scanner(lecteur);
-     while(lectureFichier.hasNextLine()){
-        String string = lectureFichier.nextLine();
-        // mots :ID, date, nbSS , details cliniques, appareilMedical nom, appareilMedical enAttente(boolean).
-        String Mots[] = string.split("/");
-        Patient pat =  base.rechercherPatient(Mots[2]);
-        // cast String to integer
-        int ID = Integer.parseInt(Mots[0]);
-        boolean enAttente = Boolean.parseBoolean(Mots[5]);
-        AppareilMedical app = new AppareilMedical(Mots[4], enAttente);
-        Consultation consul = new Consultation(ID, Mots[1], pat, Mots[3], app);
-        this.base.put(consul.ID ,consul);
-     }
-     lectureFichier.close();
+        /*
+        lis le fichier.txt (path)
+        cree les consultations (peupler la base)
+        *recupere l'objet patient via son numero de securite sociale
+        */
+        this.base = createBase();
+        FileReader lecteur = new FileReader(this.path);
+        Scanner lectureFichier = new Scanner(lecteur);
+        while(lectureFichier.hasNextLine()){
+            String string = lectureFichier.nextLine();
+            // mots :ID, date, nbSS , details cliniques, appareilMedical nom, appareilMedical enAttente(boolean).
+            String Mots[] = string.split("/");
+            Patient pat =  base.rechercherPatient(Mots[2]);
+            // cast String to integer
+            int ID = Integer.parseInt(Mots[0]);
+            boolean enAttente = Boolean.parseBoolean(Mots[5]);
+            AppareilMedical app = new AppareilMedical(Mots[4], enAttente);
+            Consultation consul = new Consultation(ID, Mots[1], pat, Mots[3], app);
+            this.base.put(consul.ID ,consul);
+        }
+        lectureFichier.close();
     }
 
     public void save() throws IOException{
