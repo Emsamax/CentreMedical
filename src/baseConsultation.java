@@ -1,5 +1,8 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.KeyException;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -54,11 +57,30 @@ public class BaseConsultation {
      lectureFichier.close();
     }
 
-    public void save(){
+    public void save() throws IOException{
         /**
-         * 
          * sauvegarde la base dans le fichier.txt (path)
          */
-    
+        File Fichier = new File(this.path);
+        File ModifFichier = new File(this.path + ".tmp");
+        FileWriter fileWriter = new FileWriter(this.path + ".tmp");
+        // boucle sur toutes les clés du hashmap.
+        for (int ID : this.base.keySet()) {
+            Consultation cons = this.base.get(ID);
+            String line = Integer.toString(cons.ID) + "/" + cons.patient.nbSS + "/" + cons.detailsCiniques 
+            + "/" + cons.appareilMedical.nom + "/" + Boolean.toString(cons.appareilMedical.enAttente);
+            fileWriter.write(line);
+            fileWriter.write("\n");
+
+        }
+        fileWriter.flush();
+        fileWriter.close();
+
+        if (ModifFichier.renameTo(Fichier)) {
+            System.out.println("Le fichier a été renommé avec succès");
+        } else {
+            System.out.println("Impossible de renommer le fichier");
+
+        }
     }
 }
