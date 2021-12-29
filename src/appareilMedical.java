@@ -11,7 +11,7 @@ public class AppareilMedical {
         this.enAttente = enAttente;
     }
 
-   public void octroyer(){
+   public void valider(){
        this.enAttente = false;
    }
 

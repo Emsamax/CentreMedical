@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.KeyException;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ import javax.management.openmbean.KeyAlreadyExistsException;
 
 public class BaseConsultation {
     public String path;
-    private HashMap <Integer, Consultation> base;
+    public HashMap <Integer, Consultation> base;
 
     public BaseConsultation(String path) {
         this.path = path;
@@ -33,7 +34,7 @@ public class BaseConsultation {
 
     public void ajouterConsultation(Consultation consultation){
         if (this.base.containsKey(consultation.ID)) {
-            throw new KeyAlreadyExistsException(" la consultation existe déjà");
+            throw new KeyAlreadyExistsException("la consultation existe déjà");
         } else {
             this.base.put(consultation.ID, consultation);
         }
@@ -41,7 +42,7 @@ public class BaseConsultation {
 
     public void supprimerConsultation(int ID){
             if (!this.base.containsKey(ID)) {
-                throw new KeyAlreadyExistsException(" la consultation n'existe pas");
+                throw new KeyAlreadyExistsException("la consultation n'existe pas");
             } else
                 this.base.remove(ID);
     }
@@ -54,7 +55,7 @@ public class BaseConsultation {
             throw new KeyException("la consultation n'existe pas");
     }
 
-    public void load(BasePatient base) throws FileNotFoundException, KeyException{
+    public void load(BasePatient base) throws KeyException, IOException{
         /*
         lis le fichier.txt (path)
         cree les consultations (peupler la base)
@@ -67,15 +68,16 @@ public class BaseConsultation {
             String string = lectureFichier.nextLine();
             // mots :ID, date, nbSS , details cliniques, appareilMedical nom, appareilMedical enAttente(boolean).
             String Mots[] = string.split("/");
-            Patient pat =  base.rechercherPatient(Mots[2]);
+            Patient pat = base.rechercherPatient(Mots[1]);
             // cast String to integer
             int ID = Integer.parseInt(Mots[0]);
-            boolean enAttente = Boolean.parseBoolean(Mots[5]);
-            AppareilMedical app = new AppareilMedical(Mots[4], enAttente);
+            boolean enAttente = Boolean.parseBoolean(Mots[4]);
+            AppareilMedical app = new AppareilMedical(Mots[3], enAttente);
             Consultation consul = new Consultation(ID, Mots[1], pat, Mots[3], app);
             this.base.put(consul.ID ,consul);
         }
         lectureFichier.close();
+        lecteur.close();
     }
 
     public void save() throws IOException{
@@ -85,17 +87,19 @@ public class BaseConsultation {
         File Fichier = new File(this.path);
         File ModifFichier = new File(this.path + ".tmp");
         FileWriter fileWriter = new FileWriter(this.path + ".tmp");
+        PrintWriter out = new PrintWriter(new FileWriter(ModifFichier, true));
         // boucle sur toutes les clés du hashmap.
         for (int ID : this.base.keySet()) {
-            Consultation cons = this.base.get(ID);
-            String line = Integer.toString(cons.ID) + "/" + cons.patient.nbSS + "/" + cons.detailsCiniques 
-            + "/" + cons.appareilMedical.nom + "/" + Boolean.toString(cons.appareilMedical.enAttente);
+            Consultation cons = this.base.get(ID); 
+            String line = Integer.toString(cons.ID) + "/" + cons.patient.nbSS + "/" + cons.detailsCiniques  + "/" + cons.appareilMedical.nom + "/" + Boolean.toString(cons.appareilMedical.enAttente) + "\n";
+            out.write(line);
+            out.close();
             fileWriter.write(line);
-            fileWriter.write("\n");
-
         }
         fileWriter.flush();
         fileWriter.close();
+        
+        Fichier.delete();
 
         if (ModifFichier.renameTo(Fichier)) {
             System.out.println("Le fichier a été renommé avec succès");
@@ -103,5 +107,15 @@ public class BaseConsultation {
             System.out.println("Impossible de renommer le fichier");
 
         }
+    }
+    public void afficherBaseConsultation(BaseConsultation base){
+        String MapString = null;
+        for(int ID: this.base.keySet()){
+            MapString = this.base.get(ID).toString();
+             System.out.println(" les elements de la hashmap sont :"+ MapString.toString());
+             
+
+        }
+        
     }
 }

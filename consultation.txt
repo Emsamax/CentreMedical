@@ -1,2 +1,5 @@
-medecin@6d03e736
-medecin@7d4991ad
+1/1122336655445/bandages/bandages/true
+2/7412589633698/bandages/bandages/true
+3/9632587411478/bandages/bandages/true
+4/7896541236549/bandages/bandages/true
+5/7539514682000/mal au crane/bandages/true

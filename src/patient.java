@@ -7,7 +7,7 @@ public class Patient {
     public String nbSS;
     public String dateNaissance;
     public ArrayList<Consultation> consultations;
-    public ArrayList<Pathologie> patologies;
+    public ArrayList<Pathologie> pathologies;
 
     public Patient() {
 
@@ -21,7 +21,7 @@ public class Patient {
         }
         this.nbSS = nbSS;
         this.dateNaissance = dateNaissance;
-        this.patologies = new ArrayList<Pathologie>();
+        this.pathologies = new ArrayList<Pathologie>();
         this.consultations = new ArrayList<Consultation>();
     }
 
@@ -67,12 +67,11 @@ public class Patient {
 
     public void ajouterPathologie(Pathologie pathologie) {
         // appeler sous la forme Pathologie.COUDE (tout ce qui se trouve dans enum)
-        this.patologies.add(pathologie);
+        this.pathologies.add(pathologie);
     }
 
     public String toString() {
         return this.getNom() + "/" + this.getPrenom() + "/" + this.getNbSS() + "/" + this.getDateNaissance() + "\n";
-
     }
 
     private boolean verif(String NbSS) {
@@ -97,8 +96,7 @@ public class Patient {
                 }
 
             }
-
-            
+   
         }
         return  true;
     }
