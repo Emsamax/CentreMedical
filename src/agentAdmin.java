@@ -25,7 +25,7 @@ public class AgentAdmin {
 
     public Patient modifierPatient(String nom, String prenom, String nbSS, String dateNaissance){
         Patient pat = modifierPatient(nom, prenom, nbSS, dateNaissance);
-        return pat;
+        return pat ;
     }
     
 }
