@@ -12,7 +12,7 @@ public class AppareilMedical {
     }
 
    public void valider(){
-       this.enAttente = false;
+       this.enAttente = false ;
    }
 
 }
