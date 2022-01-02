@@ -9,8 +9,8 @@ public class main {
      public static void main(String[] args) {
 
         try{
-        BasePatient basePat = new BasePatient("ListePatient.txt");
-        BaseConsultation baseCons = new BaseConsultation("consultation.txt");
+        basePatient basePat = new basePatient("ListePatient.txt");
+        baseConsultation baseCons = new baseConsultation("consultation.txt");
         Medecin medoc = new Medecin("Dr.Matriño");
         basePat.load();
         baseCons.load(basePat);
@@ -48,6 +48,7 @@ public class main {
         //basePat.modifierPatient("2222222222222");
         //basePat.save();
        
+        
     System.out.println(pat.toString());
          }catch(KeyException e){
              System.out.println(e.toString());

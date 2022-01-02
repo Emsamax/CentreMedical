@@ -2,4 +2,5 @@
 2/7412589633698/bandages/bandages/true
 3/9632587411478/bandages/bandages/true
 4/7896541236549/bandages/bandages/true
-5/7539514682000/mal au crane/bandages/true
+5/7539514682000/bandages/bandages/true
+6/2334582738983/mal au crane/bandages/true

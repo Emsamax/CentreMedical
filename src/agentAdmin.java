@@ -1,25 +1,25 @@
 import java.security.KeyException;
 
-public class AgentAdmin {
+public class agentAdmin {
     public String nom;
     public String prenom;
 
  
-    public AgentAdmin(String nom, String prenom) {
+    public agentAdmin(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
     }
 
-    public Patient rechercherPatient(String nbSS, BasePatient basePat) throws KeyException{
+    public Patient rechercherPatient(String nbSS, basePatient basePat) throws KeyException{
         Patient pat = basePat.rechercherPatient(nbSS);
         return pat;
     }
 
-    public void ajouterPatient(BasePatient basePat, Patient patient){
+    public void ajouterPatient(basePatient basePat, Patient patient){
         basePat.ajouterPatient(patient);
     }
 
-    public void supprimerPatient(String nbSS, BasePatient basePat){
+    public void supprimerPatient(String nbSS, basePatient basePat){
         basePat.supprimerPatient(nbSS);
     }
 

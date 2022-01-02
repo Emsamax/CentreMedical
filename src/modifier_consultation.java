@@ -1,15 +1,15 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-import javax.swing.JTextField;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-public class ajouter_patient extends JFrame {
+public class modifier_consultation extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -24,7 +24,7 @@ public class ajouter_patient extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ajouter_patient frame = new ajouter_patient();
+					modifier_consultation frame = new modifier_consultation();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,8 +36,8 @@ public class ajouter_patient extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ajouter_patient() {
-		setTitle("Ajouter patient");
+	public modifier_consultation() {
+		setTitle("modifier consultation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -46,12 +46,12 @@ public class ajouter_patient extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(73, 11, 96, 20);
+		textField.setBounds(108, 11, 96, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(73, 63, 96, 20);
+		textField_1.setBounds(108, 60, 96, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -65,20 +65,20 @@ public class ajouter_patient extends JFrame {
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Nom");
-		lblNewLabel.setBounds(10, 14, 49, 14);
+		JLabel lblNewLabel = new JLabel("nom patient");
+		lblNewLabel.setBounds(10, 14, 82, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Prenom");
-		lblNewLabel_1.setBounds(10, 66, 49, 14);
+		JLabel lblNewLabel_1 = new JLabel("appareil medical");
+		lblNewLabel_1.setBounds(0, 66, 98, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("numero securite social");
-		lblNewLabel_2.setBounds(179, 14, 128, 14);
+		JLabel lblNewLabel_2 = new JLabel("detail clinique");
+		lblNewLabel_2.setBounds(239, 14, 68, 14);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("date de naissancce");
-		lblNewLabel_3.setBounds(211, 63, 96, 14);
+		JLabel lblNewLabel_3 = new JLabel("date ");
+		lblNewLabel_3.setBounds(275, 63, 32, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnNewButton = new JButton("Valider");
@@ -89,4 +89,5 @@ public class ajouter_patient extends JFrame {
 		textArea.setBounds(56, 176, 325, 76);
 		contentPane.add(textArea);
 	}
+
 }

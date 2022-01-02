@@ -8,19 +8,19 @@ public class Medecin {
         this.nom = nom;
     }
 
-    public Consultation rechercherConsultation(int ID, BaseConsultation baseCons) throws KeyException{
+    public Consultation rechercherConsultation(int ID, baseConsultation baseCons) throws KeyException{
         Consultation cons = baseCons.rechercherConsultation(ID);
         return cons;
     }
-    public void ajoutConsultation(BaseConsultation baseCons, Consultation consultation){
+    public void ajoutConsultation(baseConsultation baseCons, Consultation consultation){
         baseCons.ajouterConsultation(consultation);
     }
 
-    public void supprimerConsultation(BaseConsultation baseCons, int ID){
+    public void supprimerConsultation(baseConsultation baseCons, int ID){
         baseCons.supprimerConsultation(ID);
     }
 
-    public void modifierConsultation(BaseConsultation baseCons, Consultation consultation) throws KeyException{
+    public void modifierConsultation(baseConsultation baseCons, Consultation consultation) throws KeyException{
         baseCons.modifierConsultation(consultation);
     }
     
@@ -29,13 +29,13 @@ public class Medecin {
         patient.ajouterPathologie(pathologie);
 
     }
-    public Consultation createConsultation(String date, Patient patient, String detailsCliniques,AppareilMedical appareilMedical ){  
+    public Consultation createConsultation(String date, Patient patient, String detailsCliniques,appareilMedical appareilMedical ){  
         Consultation cons = new Consultation(date, patient, detailsCliniques);
         cons.octroyerAppareil(appareilMedical);
         return cons;
     }
-    public AppareilMedical createAppareilMedical(String nom){
-        AppareilMedical app = new AppareilMedical(nom);
+    public appareilMedical createAppareilMedical(String nom){
+        appareilMedical app = new appareilMedical(nom);
         return app;
     }
 }

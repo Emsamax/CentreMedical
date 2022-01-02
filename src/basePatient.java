@@ -10,11 +10,11 @@ import java.util.Scanner;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
 
-public class BasePatient {
+public class basePatient {
     public String path;
     private HashMap<String, Patient> base;
 
-    public BasePatient(String path) {
+    public basePatient(String path) {
         this.path = path;
         //this.base = createBase();
     }

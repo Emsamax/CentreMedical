@@ -1,12 +1,12 @@
-public class AppareilMedical {
+public class appareilMedical {
     public String nom;
     public boolean enAttente = true;
 
-   public  AppareilMedical (String nom){
+   public  appareilMedical (String nom){
        this.nom = nom;
    }
    
-    public AppareilMedical(String nom, boolean enAttente){
+    public appareilMedical(String nom, boolean enAttente){
         this.nom = nom;
         this.enAttente = enAttente;
     }

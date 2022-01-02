@@ -10,7 +10,7 @@ public class Consultation {
     public String date;
     public Patient patient;
     public String detailsCiniques;
-    public AppareilMedical appareilMedical;
+    public appareilMedical appareilMedical;
 
     public String getDate() {
         return this.date;
@@ -37,16 +37,16 @@ public class Consultation {
     }
 
 
-    public Consultation(AppareilMedical appareilMedical) {
+    public Consultation(appareilMedical appareilMedical) {
         this.appareilMedical = appareilMedical;
     }
 
 
-    public AppareilMedical getAppareilMedical() {
+    public appareilMedical getAppareilMedical() {
         return this.appareilMedical;
     }
 
-    public void setAppareilMedical(AppareilMedical appareilMedical) {
+    public void setAppareilMedical(appareilMedical appareilMedical) {
         this.appareilMedical = appareilMedical;
     }
 
@@ -62,7 +62,7 @@ public class Consultation {
         this.ID = (IDcourant + 1);
     }
 
-    public Consultation(String date, Patient patient, String detailsCiniques, AppareilMedical appareilMedical) {
+    public Consultation(String date, Patient patient, String detailsCiniques, appareilMedical appareilMedical) {
         this.date = date;
         this.patient = patient;
         this.detailsCiniques = detailsCiniques;
@@ -71,7 +71,7 @@ public class Consultation {
         this.ID = (IDcourant + 1);
     }
 
-    public Consultation(int ID, String date, Patient patient, String detailsCiniques, AppareilMedical appareilMedical) {
+    public Consultation(int ID, String date, Patient patient, String detailsCiniques, appareilMedical appareilMedical) {
         this.date = date;
         this.patient = patient;
         this.detailsCiniques = detailsCiniques;
@@ -79,7 +79,7 @@ public class Consultation {
         this.ID = ID;
     }
 
-    public void octroyerAppareil(AppareilMedical appareilMedical){
+    public void octroyerAppareil(appareilMedical appareilMedical){
         this.appareilMedical = appareilMedical;
     }
 

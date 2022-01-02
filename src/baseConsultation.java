@@ -10,11 +10,11 @@ import java.util.Scanner;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
 
-public class BaseConsultation {
+public class baseConsultation {
     public String path;
     public HashMap <Integer, Consultation> base;
 
-    public BaseConsultation(String path) {
+    public baseConsultation(String path) {
         this.path = path;
         this.base = createBase();
     }
@@ -55,7 +55,7 @@ public class BaseConsultation {
             throw new KeyException("la consultation n'existe pas");
     }
 
-    public void load(BasePatient base) throws KeyException, IOException{
+    public void load(basePatient base) throws KeyException, IOException{
         /*
         lis le fichier.txt (path)
         cree les consultations (peupler la base)
@@ -72,7 +72,7 @@ public class BaseConsultation {
             // cast String to integer
             int ID = Integer.parseInt(Mots[0]);
             boolean enAttente = Boolean.parseBoolean(Mots[4]);
-            AppareilMedical app = new AppareilMedical(Mots[3], enAttente);
+            appareilMedical app = new appareilMedical(Mots[3], enAttente);
             Consultation consul = new Consultation(ID, Mots[1], pat, Mots[3], app);
             this.base.put(consul.ID ,consul);
         }
@@ -108,7 +108,7 @@ public class BaseConsultation {
 
         }
     }
-    public void afficherBaseConsultation(BaseConsultation base){
+    public void afficherBaseConsultation(baseConsultation base){
         String MapString = null;
         for(int ID: this.base.keySet()){
             MapString = this.base.get(ID).toString();
