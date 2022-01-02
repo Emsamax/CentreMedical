@@ -1,22 +1,22 @@
+package Frames;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
-public class modifier_patient extends JFrame {
+public class ajouter_patient extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-
 
 	/**
 	 * Launch the application.
@@ -25,7 +25,7 @@ public class modifier_patient extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					modifier_patient frame = new modifier_patient();
+					ajouter_patient frame = new ajouter_patient();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,14 +37,15 @@ public class modifier_patient extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public modifier_patient() {
-		setTitle("modifier patient");
+	public ajouter_patient() {
+		setTitle("Ajouter patient");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
 		textField = new JTextField();
 		textField.setBounds(73, 11, 96, 20);
 		contentPane.add(textField);
@@ -89,5 +90,4 @@ public class modifier_patient extends JFrame {
 		textArea.setBounds(56, 176, 325, 76);
 		contentPane.add(textArea);
 	}
-
 }

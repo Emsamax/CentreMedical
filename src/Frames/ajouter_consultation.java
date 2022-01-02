@@ -1,3 +1,4 @@
+package Frames;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -9,7 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class modifier_consultation extends JFrame {
+public class ajouter_consultation extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -24,7 +25,7 @@ public class modifier_consultation extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					modifier_consultation frame = new modifier_consultation();
+					ajouter_consultation frame = new ajouter_consultation();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,22 +37,21 @@ public class modifier_consultation extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public modifier_consultation() {
-		setTitle("modifier consultation");
+	public ajouter_consultation() {
+		setTitle("ajouter consultation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
 		textField = new JTextField();
-		textField.setBounds(108, 11, 96, 20);
+		textField.setBounds(125, 11, 96, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(108, 60, 96, 20);
+		textField_1.setBounds(125, 60, 96, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -66,19 +66,19 @@ public class modifier_consultation extends JFrame {
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("nom patient");
-		lblNewLabel.setBounds(10, 14, 82, 14);
+		lblNewLabel.setBounds(10, 14, 96, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("appareil medical");
-		lblNewLabel_1.setBounds(0, 66, 98, 14);
+		lblNewLabel_1.setBounds(5, 63, 101, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("detail clinique");
-		lblNewLabel_2.setBounds(239, 14, 68, 14);
+		JLabel lblNewLabel_2 = new JLabel("détail clinique");
+		lblNewLabel_2.setBounds(227, 13, 80, 17);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("date ");
-		lblNewLabel_3.setBounds(275, 63, 32, 14);
+		lblNewLabel_3.setBounds(275, 66, 32, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnNewButton = new JButton("Valider");
