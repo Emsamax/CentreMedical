@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Panel;
 
-public class fframe extends JFrame {
+public class Frame extends JFrame {
 
 	private JPanel contentPane;
 
@@ -21,7 +21,7 @@ public class fframe extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					fframe frame = new fframe();
+					Frame frame = new Frame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +33,7 @@ public class fframe extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public fframe() {
+	public Frame() {
 		setTitle("Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 550, 444);
@@ -48,8 +48,8 @@ public class fframe extends JFrame {
 				agent_administration agentadministration = new agent_administration();
 				agentadministration.setVisible(true);
 			}
-			
 		});
+		
 		contentPane.setLayout(null);
 		contentPane.add(btnNewButton);
 		
@@ -60,6 +60,7 @@ public class fframe extends JFrame {
 				medecin.setVisible(true);
 			}
 		});
+		
 		btnNewButton_1.setBounds(208, 31, 111, 59);
 		contentPane.add(btnNewButton_1);
 		
@@ -70,6 +71,7 @@ public class fframe extends JFrame {
 				technicien.setVisible(true);
 			}
 		});
+		
 		btnNewButton_2.setBounds(415, 31, 111, 59);
 		contentPane.add(btnNewButton_2);
 	}
