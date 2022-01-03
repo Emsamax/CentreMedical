@@ -59,11 +59,11 @@ public class agent_administration extends JFrame {
 				ajouterpatient.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(111, 135, 194, 50);
+		btnNewButton.setBounds(10, 142, 194, 50);
 		contentPane.add(btnNewButton);
 		
 		JButton rechercher = new JButton("rechercher");
-		rechercher.setBounds(259, 39, 152, 58);
+		rechercher.setBounds(229, 39, 152, 58);
 		contentPane.add(rechercher);
 		rechercher.addActionListener (new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
