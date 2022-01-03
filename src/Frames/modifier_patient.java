@@ -82,6 +82,7 @@ public class modifier_patient extends JFrame {
 		textField_2.setBounds(317, 11, 96, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
+		textField_2.setEnabled(false);
 		
 		textField_3 = new JTextField(pat.getDateNaissance());
 		textField_3.setBounds(317, 60, 96, 20);
@@ -96,9 +97,10 @@ public class modifier_patient extends JFrame {
 		lblNewLabel_1.setBounds(10, 66, 49, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel(" meme numero securite social");
+		JLabel lblNewLabel_2 = new JLabel("numero securite social");
 		lblNewLabel_2.setBounds(179, 14, 128, 14);
 		contentPane.add(lblNewLabel_2);
+		lblNewLabel_2.setEnabled(false);
 		
 		JLabel lblNewLabel_3 = new JLabel("date de naissancce");
 		lblNewLabel_3.setBounds(211, 63, 96, 14);
