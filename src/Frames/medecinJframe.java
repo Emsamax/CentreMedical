@@ -19,7 +19,6 @@ public class medecinJframe extends JFrame {
 	private JTextField textField;
 	private JButton btnNewButton_4;
 	private JTextField textField_4;
-	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -82,18 +81,5 @@ public class medecinJframe extends JFrame {
 		textField_4.setBounds(68, 156, 109, 40);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(68, 221, 109, 42);
-		contentPane.add(textField_1);
-		
-		JButton btnNewButton_4_1 = new JButton("appareil");
-		btnNewButton_4_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_4_1.setBounds(205, 221, 135, 42);
-		contentPane.add(btnNewButton_4_1);
 	}
 }
