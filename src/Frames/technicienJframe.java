@@ -17,6 +17,7 @@ public class technicienJframe extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 	private JTable table_1;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -51,7 +52,7 @@ public class technicienJframe extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(241, 65, 185, 80);
+		btnNewButton.setBounds(241, 172, 185, 80);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("rechercher");
@@ -59,8 +60,13 @@ public class technicienJframe extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setBounds(10, 63, 185, 85);
+		btnNewButton_1.setBounds(241, 64, 185, 85);
 		contentPane.add(btnNewButton_1);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 64, 221, 85);
+		contentPane.add(textField);
+		textField.setColumns(10);
 		
 	
 	}
