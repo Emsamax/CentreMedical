@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+
 public class ajouter_consultation extends JFrame {
 
 	private JPanel contentPane;
@@ -73,7 +74,7 @@ public class ajouter_consultation extends JFrame {
 		lblNewLabel_1.setBounds(5, 63, 101, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("détail clinique");
+		JLabel lblNewLabel_2 = new JLabel("dï¿½tail clinique");
 		lblNewLabel_2.setBounds(227, 13, 80, 17);
 		contentPane.add(lblNewLabel_2);
 		

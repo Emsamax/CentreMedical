@@ -1,3 +1,4 @@
+package Code;
 public class NbSecuriteSocialeException extends RuntimeException {
    
     public NbSecuriteSocialeException() {

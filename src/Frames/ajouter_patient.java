@@ -1,6 +1,7 @@
 package Frames;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,15 +10,22 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import Code.*;
+import javafx.scene.control.TextArea;
 
-public class ajouter_patient extends JFrame {
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
+public class ajouter_patient extends JFrame{
+
+
+	
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -51,15 +59,18 @@ public class ajouter_patient extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		
 		textField_1 = new JTextField();
 		textField_1.setBounds(73, 63, 96, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
+		
 		textField_2 = new JTextField();
-		textField_2.setBounds(317, 11, 96, 20);
+		textField_2.setBounds(320, 11, 112, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
+		
 		
 		textField_3 = new JTextField();
 		textField_3.setBounds(317, 60, 96, 20);
@@ -82,12 +93,43 @@ public class ajouter_patient extends JFrame {
 		lblNewLabel_3.setBounds(211, 63, 96, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setBounds(46, 114, 332, 51);
-		contentPane.add(btnNewButton);
+		//le bouton valider et ses events:
+		JButton valider = new JButton("Valider");
+		valider.setBounds(46, 114, 332, 51);
+		contentPane.add(valider);
+		valider.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				basePatient basePat = new basePatient("ListePatient.txt");
+				try{
+					basePat.load();
+				}catch(IOException e){
+					System.out.println((e.toString()));
+				}
+				String nom = textField.getText();
+				String prenom = textField_1.getText();
+				String nbSS = textField_2.getText();
+				String dateNaissance = textField_3.getText();
+				Patient pat = new Patient(nom.trim(), prenom.trim(), nbSS.trim(), dateNaissance.trim());
+				
+				JLabel textArea = new JLabel();
+				textArea.setBounds(56, 176, 325, 76);
+				contentPane.add(textArea);
+				textArea.setText(" le patient "+ pat+ "  a bien ete cree" );
+
+				try{
+					basePat.ajouterPatient(pat);
+					basePat.save();
+				}catch(IOException e){
+					System.out.println(event.toString());
+				}
+			}
+
+		});
+		
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(56, 176, 325, 76);
 		contentPane.add(textArea);
 	}
+
 }

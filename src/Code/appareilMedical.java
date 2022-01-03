@@ -1,3 +1,4 @@
+package Code;
 public class appareilMedical {
     public String nom;
     public boolean enAttente = true;

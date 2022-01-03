@@ -3,15 +3,21 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.security.KeyException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.JList;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import Code.*;
 public class agent_administration extends JFrame {
 
 	private JPanel contentPane;
@@ -58,22 +64,75 @@ public class agent_administration extends JFrame {
 		btnNewButton.setBounds(309, 233, 117, 24);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("rechercher");
-		btnNewButton_1.setBounds(244, 142, 152, 58);
-		contentPane.add(btnNewButton_1);
+		JButton rechercher = new JButton("rechercher");
+		rechercher.setBounds(244, 142, 152, 58);
+		contentPane.add(rechercher);
+		rechercher.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				basePatient basePat = new basePatient("ListePatient.txt");
+				try{
+					basePat.load();
+				}catch(IOException e){
+					System.out.println((e.toString()));
+				}
+				String patient = "";
+				String nbSS = textField.getText();
+				try{
+					Patient patR = basePat.rechercherPatient(nbSS);
+					System.out.println(patR.toString());
+					patient = patR.toString();
+				}catch(KeyException e){
+					System.out.println((e.toString()));
+				}
+				JLabel reponse =  new JLabel();
+				rechercher.setBounds(244, 142, 152, 58);
+				contentPane.add(rechercher);
+				reponse.setText(patient);
+				
+			}		
+		});
 		
-		JButton btnNewButton_2 = new JButton("modifier");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton modifier = new JButton("modifier");
+		modifier.setBounds(166, 233, 117, 24);
+		contentPane.add(modifier);
+		modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				modifier_patient modifierpatient = new modifier_patient();
 				modifierpatient.setVisible(true);
+				modifier.addActionListener (new ActionListener() {
+					public void actionPerformed(ActionEvent event) {
+					/*	basePatient basePat = new basePatient("ListePatient.txt");
+						try{
+							basePat.load();
+						}catch(IOException e){
+							System.out.println((e.toString()));
+						}
+						String nom = textField.getText();
+						String prenom = textField_1.getText();
+						// on garde le mm numero de securite sociale;
+						String dateNaissance = textField_3.getText();
+						Patient pat = new Patient(nom.trim(), prenom.trim(), nbSS.trim(), dateNaissance.trim());
+						
+						JLabel textArea = new JLabel();
+						textArea.setBounds(56, 176, 325, 76);
+						contentPane.add(textArea);
+						textArea.setText(" le patient "+ pat+ "  a bien ete modifie" );
+		
+						try{
+							basePat.ajouterPatient(pat);
+							basePat.save();
+						}catch(IOException e){
+							System.out.println(event.toString());
+						}*/
+					}
+		
+				});
 			}
 		});
 		
 				
 	
-		btnNewButton_2.setBounds(166, 233, 117, 24);
-		contentPane.add(btnNewButton_2);
+		
 		
 		
 		btnNewButton_3 = new JButton("supprimer");

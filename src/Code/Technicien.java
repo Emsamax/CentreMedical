@@ -1,3 +1,5 @@
+package Code;
+
 public class Technicien {
     
     public void validerAppareilMedical(Consultation consultation){

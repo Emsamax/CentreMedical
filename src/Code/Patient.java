@@ -1,3 +1,4 @@
+package Code;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -17,7 +18,7 @@ public class Patient {
         this.nom = nom;
         this.prenom = prenom;
         if(!verif(nbSS)){
-            throw new NbSecuriteSocialeException("numero de securité sociale invalide "+ nbSS);
+            throw new NbSecuriteSocialeException("numero de securité sociale invalide "+ nbSS.toString());
         }
         this.nbSS = nbSS;
         this.dateNaissance = dateNaissance;
