@@ -69,6 +69,12 @@ public class agent_administration extends JFrame {
 		contentPane.add(rechercher);
 		rechercher.addActionListener (new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
+				
+				
+				rechercher_patient rechercherpatient = new rechercher_patient();
+				rechercherpatient.setVisible(true);
+				
+				
 				basePatient basePat = new basePatient("ListePatient.txt");
 				try{
 					basePat.load();
@@ -90,44 +96,6 @@ public class agent_administration extends JFrame {
 				reponse.setText(patient);
 				
 			}		
-		});
-		
-		JButton modifier = new JButton("modifier");
-		modifier.setBounds(166, 233, 117, 24);
-		contentPane.add(modifier);
-		modifier.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modifier_patient modifierpatient = new modifier_patient();
-				modifierpatient.setVisible(true);
-				modifier.addActionListener (new ActionListener() {
-					public void actionPerformed(ActionEvent event) {
-					/*	basePatient basePat = new basePatient("ListePatient.txt");
-						try{
-							basePat.load();
-						}catch(IOException e){
-							System.out.println((e.toString()));
-						}
-						String nom = textField.getText();
-						String prenom = textField_1.getText();
-						// on garde le mm numero de securite sociale;
-						String dateNaissance = textField_3.getText();
-						Patient pat = new Patient(nom.trim(), prenom.trim(), nbSS.trim(), dateNaissance.trim());
-						
-						JLabel textArea = new JLabel();
-						textArea.setBounds(56, 176, 325, 76);
-						contentPane.add(textArea);
-						textArea.setText(" le patient "+ pat+ "  a bien ete modifie" );
-		
-						try{
-							basePat.ajouterPatient(pat);
-							basePat.save();
-						}catch(IOException e){
-							System.out.println(event.toString());
-						}*/
-					}
-		
-				});
-			}
 		});
 		
 				

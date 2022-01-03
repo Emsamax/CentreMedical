@@ -97,6 +97,10 @@ public class ajouter_patient extends JFrame{
 		JButton valider = new JButton("Valider");
 		valider.setBounds(46, 114, 332, 51);
 		contentPane.add(valider);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(56, 176, 322, 76);
+		contentPane.add(lblNewLabel_4);
 		valider.addActionListener (new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				basePatient basePat = new basePatient("ListePatient.txt");
@@ -125,11 +129,6 @@ public class ajouter_patient extends JFrame{
 			}
 
 		});
-		
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(56, 176, 325, 76);
-		contentPane.add(textArea);
 	}
 
 }

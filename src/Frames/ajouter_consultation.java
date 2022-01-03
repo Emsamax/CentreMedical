@@ -86,9 +86,9 @@ public class ajouter_consultation extends JFrame {
 		btnNewButton.setBounds(46, 114, 332, 51);
 		contentPane.add(btnNewButton);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(56, 176, 325, 76);
-		contentPane.add(textArea);
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(56, 176, 322, 76);
+		contentPane.add(lblNewLabel_4);
 	}
 
 }

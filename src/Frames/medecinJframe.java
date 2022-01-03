@@ -11,6 +11,7 @@ import javax.swing.JList;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 public class medecinJframe extends JFrame {
 
@@ -18,7 +19,7 @@ public class medecinJframe extends JFrame {
 	private JTextField textField;
 	private JButton btnNewButton_4;
 	private JTextField textField_4;
-	private JTextField textField_1;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -94,9 +95,8 @@ public class medecinJframe extends JFrame {
 		comboBox.setBounds(245, 240, 181, 22);
 		contentPane.add(comboBox);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(20, 11, 385, 115);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(38, 11, 362, 128);
+		contentPane.add(lblNewLabel);
 	}
 }

@@ -86,9 +86,9 @@ public class modifier_patient extends JFrame {
 		btnNewButton.setBounds(46, 114, 332, 51);
 		contentPane.add(btnNewButton);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(56, 176, 325, 76);
-		contentPane.add(textArea);
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(46, 176, 332, 87);
+		contentPane.add(lblNewLabel_4);
 	}
 
 }
