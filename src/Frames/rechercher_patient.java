@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class rechercher_patient extends JFrame {
 
@@ -45,11 +47,17 @@ public class rechercher_patient extends JFrame {
 		lblNewLabel.setBounds(41, 11, 347, 79);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("modifer");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modifier_patient modifierpatient = new modifier_patient();
+				modifierpatient.setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(10, 133, 120, 58);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("supprimer");
 		btnNewButton_1.setBounds(297, 133, 129, 58);
 		contentPane.add(btnNewButton_1);
 	}

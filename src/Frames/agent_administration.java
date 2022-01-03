@@ -21,10 +21,8 @@ import Code.*;
 public class agent_administration extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnNewButton_3;
 	private JTable table;
 	private JTextField textField;
-	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -61,11 +59,11 @@ public class agent_administration extends JFrame {
 				ajouterpatient.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(309, 233, 117, 24);
+		btnNewButton.setBounds(111, 135, 194, 50);
 		contentPane.add(btnNewButton);
 		
 		JButton rechercher = new JButton("rechercher");
-		rechercher.setBounds(244, 142, 152, 58);
+		rechercher.setBounds(259, 39, 152, 58);
 		contentPane.add(rechercher);
 		rechercher.addActionListener (new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
@@ -98,24 +96,10 @@ public class agent_administration extends JFrame {
 			}		
 		});
 		
-				
-	
-		
-		
-		
-		btnNewButton_3 = new JButton("supprimer");
-		btnNewButton_3.setBounds(32, 233, 101, 24);
-		contentPane.add(btnNewButton_3);
-		
 		textField = new JTextField();
-		textField.setBounds(32, 152, 167, 39);
+		textField.setBounds(34, 49, 167, 39);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(32, 24, 364, 107);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
 		
 		
 	}
