@@ -28,7 +28,7 @@ public class modifier_patient extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -39,12 +39,27 @@ public class modifier_patient extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public modifier_patient() {
+	public modifier_patient(String nbSS) {
+		
+		basePatient basePat = new basePatient("ListePatient.txt");
+		Patient pat = new Patient();
+		try{
+			basePat.load();
+			pat = basePat.rechercherPatient(nbSS);
+		}catch(KeyException e){
+			System.out.println(e.toString());
+		}catch(IOException e){
+			System.out.println((e.toString()));
+		}
+		
+			
+		
+
 		setTitle("modifier patient");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -52,22 +67,23 @@ public class modifier_patient extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		textField = new JTextField();
+		
+		textField = new JTextField(pat.getNom());
 		textField.setBounds(73, 11, 96, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
+		textField_1 = new JTextField(pat.getPrenom());
 		textField_1.setBounds(73, 63, 96, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		textField_2 = new JTextField();
+		textField_2 = new JTextField(pat.getNbSS());
 		textField_2.setBounds(317, 11, 96, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
-		textField_3 = new JTextField();
+		textField_3 = new JTextField(pat.getDateNaissance());
 		textField_3.setBounds(317, 60, 96, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
