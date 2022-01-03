@@ -19,7 +19,7 @@ public class medecinJframe extends JFrame {
 	private JTextField textField;
 	private JButton btnNewButton_4;
 	private JTextField textField_4;
-	private JLabel lblNewLabel;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -50,7 +50,13 @@ public class medecinJframe extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Rechercher");
-		btnNewButton.setBounds(245, 150, 181, 31);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rechercher_consultation rechercherconsultation = new rechercher_consultation();
+				rechercherconsultation.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(205, 19, 221, 54);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Ajouter");
@@ -60,43 +66,34 @@ public class medecinJframe extends JFrame {
 				ajouterconsultation.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(20, 196, 89, 23);
+		btnNewButton_1.setBounds(129, 84, 150, 61);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Supprimer");
-		btnNewButton_2.setBounds(182, 196, 89, 23);
-		contentPane.add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("Modifier");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modifier_consultation modifierconsultation = new modifier_consultation();
-				modifierconsultation.setVisible(true);
-			}
-		});
-		btnNewButton_3.setBounds(337, 196, 89, 23);
-		contentPane.add(btnNewButton_3);
-		
 		textField = new JTextField();
-		textField.setBounds(38, 150, 167, 30);
+		textField.setBounds(10, 31, 167, 30);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		btnNewButton_4 = new JButton("ajouterPathologie");
-		btnNewButton_4.setBounds(116, 240, 119, 23);
+		btnNewButton_4 = new JButton("Pathologie");
+		btnNewButton_4.setBounds(190, 156, 150, 42);
 		contentPane.add(btnNewButton_4);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(10, 241, 96, 20);
+		textField_4.setBounds(68, 156, 109, 40);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(245, 240, 181, 22);
-		contentPane.add(comboBox);
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(68, 221, 109, 42);
+		contentPane.add(textField_1);
 		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(38, 11, 362, 128);
-		contentPane.add(lblNewLabel);
+		JButton btnNewButton_4_1 = new JButton("appareil");
+		btnNewButton_4_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_4_1.setBounds(205, 221, 135, 42);
+		contentPane.add(btnNewButton_4_1);
 	}
 }

@@ -74,7 +74,7 @@ public class ajouter_consultation extends JFrame {
 		lblNewLabel_1.setBounds(5, 63, 101, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("d�tail clinique");
+		JLabel lblNewLabel_2 = new JLabel("detail clinique");
 		lblNewLabel_2.setBounds(227, 13, 80, 17);
 		contentPane.add(lblNewLabel_2);
 		

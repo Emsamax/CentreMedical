@@ -1,22 +1,19 @@
 package Frames;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTable;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
 
-public class technicienJframe extends JFrame {
+public class rechercher_consultation extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
-	private JTable table_1;
 
 	/**
 	 * Launch the application.
@@ -25,7 +22,7 @@ public class technicienJframe extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					technicienJframe frame = new technicienJframe();
+					rechercher_consultation frame = new rechercher_consultation();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,8 +34,8 @@ public class technicienJframe extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public technicienJframe() {
-		setTitle("Technicien");
+	public rechercher_consultation() {
+		setTitle("rechercher consultation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -46,22 +43,23 @@ public class technicienJframe extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("octroyer");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(241, 65, 185, 80);
-		contentPane.add(btnNewButton);
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(41, 11, 347, 79);
+		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton_1 = new JButton("rechercher");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1.setBounds(10, 63, 185, 85);
+		JButton btnNewButton_1 = new JButton("supprimer");
+		btnNewButton_1.setBounds(297, 133, 129, 58);
 		contentPane.add(btnNewButton_1);
 		
-	
+		JButton btnNewButton = new JButton("modifier");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modifier_consultation modifierconsultation = new modifier_consultation();
+				modifierconsultation.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(10, 133, 117, 58);
+		contentPane.add(btnNewButton);
 	}
+
 }
