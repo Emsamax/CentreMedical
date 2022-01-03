@@ -52,8 +52,6 @@ public class medecinJframe extends JFrame {
 		JButton btnNewButton = new JButton("Rechercher");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rechercher_consultation rechercherconsultation = new rechercher_consultation();
-				rechercherconsultation.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(205, 19, 221, 54);

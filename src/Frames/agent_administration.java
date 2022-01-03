@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.KeyException;
 import java.awt.event.ActionEvent;
@@ -82,7 +83,7 @@ public class agent_administration extends JFrame {
 				try{
 					Patient patR = basePat.rechercherPatient(nbSS);
 					System.out.println(patR.toString());
-					// PATIENT	= patR.toString();
+					textField_1.setText(" patient : " + patR.toString() );
 					
 				}catch(KeyException e){
 					System.out.println((e.toString()));
@@ -99,6 +100,21 @@ public class agent_administration extends JFrame {
 		JButton btnNewButton_1 = new JButton("supprimer");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			basePatient basePat = new basePatient("ListePatient.txt");
+				try{
+					basePat.load();
+				}catch(FileNotFoundException ev){
+					System.out.println(ev.toString());
+				}
+				String nbSS = textField.getText();
+				basePat.supprimerPatient(nbSS);
+				textField_1.setText("le patient " + nbSS + " à été suprimé");
+				try{
+					basePat.save();
+				}catch(IOException event){
+					System.out.println(event.toString());
+				}
+				
 			}
 		});
 		btnNewButton_1.setBounds(224, 142, 189, 50);
