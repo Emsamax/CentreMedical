@@ -92,9 +92,9 @@ public class basePatient {
 
     }
 
-    public void modifierPatient(String nbss) throws KeyException {
+    public void modifierPatient(String nom, String prenom, String nbss, String dateNaissance) throws KeyException {
         // recherche du patient a modifier avec son ID !!! ne change pas le NBss du patient  
-        Scanner sc = new Scanner(System.in);
+      /*  Scanner sc = new Scanner(System.in);
         System.out.println("nom patient a modifier");
         String nom = sc.nextLine();
        
@@ -103,10 +103,11 @@ public class basePatient {
         
         System.out.println("date  de naissance patient a modifier");
         String dateNaissance = sc.nextLine();
-        System.out.println("le patient a ete modidife avec succes");
+       */ 
         Patient modifPatient = new Patient(nom, prenom, nbss, dateNaissance);
         if (this.base.containsKey(modifPatient.nbSS)) {
             this.base.replace(modifPatient.nbSS, modifPatient);
+            System.out.println("le patient a ete modidife avec succes");
         } else
             throw new KeyException("le patient n'existe pas"); 
     }

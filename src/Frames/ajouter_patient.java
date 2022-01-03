@@ -93,14 +93,14 @@ public class ajouter_patient extends JFrame{
 		lblNewLabel_3.setBounds(211, 63, 96, 14);
 		contentPane.add(lblNewLabel_3);
 		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(56, 176, 322, 76);
+		contentPane.add(lblNewLabel_4);
+		
 		//le bouton valider et ses events:
 		JButton valider = new JButton("Valider");
 		valider.setBounds(46, 114, 332, 51);
 		contentPane.add(valider);
-		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(56, 176, 322, 76);
-		contentPane.add(lblNewLabel_4);
 		valider.addActionListener (new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				basePatient basePat = new basePatient("ListePatient.txt");
@@ -114,11 +114,7 @@ public class ajouter_patient extends JFrame{
 				String nbSS = textField_2.getText();
 				String dateNaissance = textField_3.getText();
 				Patient pat = new Patient(nom.trim(), prenom.trim(), nbSS.trim(), dateNaissance.trim());
-				
-				JLabel textArea = new JLabel();
-				textArea.setBounds(56, 176, 325, 76);
-				contentPane.add(textArea);
-				textArea.setText(" le patient "+ pat+ "  a bien ete cree" );
+				lblNewLabel_4.setText(" le patient "+ pat+ "  a bien ete cree" );
 
 				try{
 					basePat.ajouterPatient(pat);

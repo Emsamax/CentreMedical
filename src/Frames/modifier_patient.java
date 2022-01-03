@@ -9,6 +9,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import Code.*;
+
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.security.KeyException;
+import java.awt.event.ActionEvent;
 
 public class modifier_patient extends JFrame {
 
@@ -74,7 +80,7 @@ public class modifier_patient extends JFrame {
 		lblNewLabel_1.setBounds(10, 66, 49, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("numero securite social");
+		JLabel lblNewLabel_2 = new JLabel(" meme numero securite social");
 		lblNewLabel_2.setBounds(179, 14, 128, 14);
 		contentPane.add(lblNewLabel_2);
 		
@@ -82,13 +88,41 @@ public class modifier_patient extends JFrame {
 		lblNewLabel_3.setBounds(211, 63, 96, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setBounds(46, 114, 332, 51);
-		contentPane.add(btnNewButton);
-		
 		JLabel lblNewLabel_4 = new JLabel("New label");
 		lblNewLabel_4.setBounds(46, 176, 332, 87);
 		contentPane.add(lblNewLabel_4);
+
+		JButton modif = new JButton("Valider");
+		modif.setBounds(46, 114, 332, 51);
+		contentPane.add(modif);
+		modif.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				basePatient basePat = new basePatient("ListePatient.txt");
+				try{
+					basePat.load();
+				}catch(IOException e){
+					System.out.println((e.toString()));
+				}
+				String nom = textField.getText();
+				String prenom = textField_1.getText();
+				String nbSS = textField_2.getText();
+				String dateNaissance = textField_3.getText();
+				Patient pat = new Patient(nom.trim(), prenom.trim(), nbSS.trim(), dateNaissance.trim());
+
+				try{
+					basePat.modifierPatient(nom, prenom, nbSS, dateNaissance);
+					basePat.save();
+					lblNewLabel_4.setText(" le patient "+ pat+ "  a bien ete modife" );
+				}catch(IOException e){
+					System.out.println(e.toString());
+				}catch(KeyException e){
+					System.out.println(e.toString());
+				}
+			}
+				
+		});
+		
+		
 	}
 
 }

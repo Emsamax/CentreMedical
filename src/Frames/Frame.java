@@ -15,6 +15,7 @@ import java.awt.Panel;
 public class Frame extends JFrame {
 
 	private JPanel contentPane;
+	
 
 	/**
 	 * Launch the application.

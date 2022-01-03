@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import Code.*;
 public class rechercher_patient extends JFrame {
 
 	private JPanel contentPane;
@@ -43,11 +43,11 @@ public class rechercher_patient extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(41, 11, 347, 79);
-		contentPane.add(lblNewLabel);
+		JLabel PatientICI = new JLabel("patient");
+		PatientICI.setBounds(41, 11, 347, 79);
+		contentPane.add(PatientICI);
 		
-		JButton btnNewButton = new JButton("modifer");
+		JButton btnNewButton = new JButton("modifier");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				modifier_patient modifierpatient = new modifier_patient();
@@ -57,8 +57,16 @@ public class rechercher_patient extends JFrame {
 		btnNewButton.setBounds(10, 133, 120, 58);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("supprimer");
-		btnNewButton_1.setBounds(297, 133, 129, 58);
-		contentPane.add(btnNewButton_1);
+		JButton suppr = new JButton("supprimer");
+		suppr.setBounds(297, 133, 129, 58);
+		contentPane.add(suppr);
+		suppr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				basePatient basePat = new basePatient("ListePatient.txt");
+				//basePat.supprimerPatient();
+			}
+
+			
+		});
 	}
 }

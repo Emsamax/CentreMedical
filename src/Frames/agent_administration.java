@@ -66,32 +66,30 @@ public class agent_administration extends JFrame {
 		rechercher.setBounds(229, 39, 152, 58);
 		contentPane.add(rechercher);
 		rechercher.addActionListener (new ActionListener() {
+			
+
 			public void actionPerformed(ActionEvent event) {
 				
-				
+
 				rechercher_patient rechercherpatient = new rechercher_patient();
 				rechercherpatient.setVisible(true);
 				
-				
+
 				basePatient basePat = new basePatient("ListePatient.txt");
 				try{
 					basePat.load();
 				}catch(IOException e){
 					System.out.println((e.toString()));
 				}
-				String patient = "";
 				String nbSS = textField.getText();
 				try{
 					Patient patR = basePat.rechercherPatient(nbSS);
 					System.out.println(patR.toString());
-					patient = patR.toString();
+					// PATIENT	= patR.toString();
+					
 				}catch(KeyException e){
 					System.out.println((e.toString()));
 				}
-				JLabel reponse =  new JLabel();
-				rechercher.setBounds(244, 142, 152, 58);
-				contentPane.add(rechercher);
-				reponse.setText(patient);
 				
 			}		
 		});
