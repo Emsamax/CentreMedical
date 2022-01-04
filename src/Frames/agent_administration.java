@@ -54,9 +54,11 @@ public class agent_administration extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		// creation des boutons supprimer et modifier
 		JButton btnNewButton_1 = new JButton("supprimer");
 		JButton btnNewButton_2 = new JButton("modifier");
 
+		// création du bouton ajouter et assimilation avec le code
 		JButton btnNewButton = new JButton("ajouter");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,6 +69,7 @@ public class agent_administration extends JFrame {
 		btnNewButton.setBounds(10, 142, 189, 50);
 		contentPane.add(btnNewButton);
 		
+		//création et assimilation du bouton rechercher avec le code
 		JButton rechercher = new JButton("rechercher");
 		rechercher.setBounds(236, 17, 152, 58);
 		contentPane.add(rechercher);
@@ -99,7 +102,7 @@ public class agent_administration extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		
+		// assimilation du bouton supprimer avec le code
 		btnNewButton_1.setEnabled(false);
 		btnNewButton_1.setBounds(224, 142, 189, 50);
 		contentPane.add(btnNewButton_1);
@@ -124,7 +127,7 @@ public class agent_administration extends JFrame {
 		});
 		
 		
-		
+		//assimilation du bouton modifier avec le code
 		btnNewButton_2.setEnabled(false);
 		btnNewButton_2.setBounds(115, 202, 189, 50);
 		contentPane.add(btnNewButton_2);

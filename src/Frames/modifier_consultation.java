@@ -62,7 +62,7 @@ public class modifier_consultation extends JFrame {
 			System.out.println((e.toString()));
 		}
 
-
+		//titre de la frame
 		setTitle("modifier consultation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -71,6 +71,7 @@ public class modifier_consultation extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//textfield pour mettre les informations de la consultation pour la modifier
 		textField = new JTextField();
 		textField.setBounds(108, 11, 96, 20);
 		contentPane.add(textField);
@@ -94,6 +95,7 @@ public class modifier_consultation extends JFrame {
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
+		//créations des differents labels associers aux différents textfields
 		JLabel lblNewLabel = new JLabel("numero Securite Sociale");
 		lblNewLabel.setBounds(10, 14, 82, 14);
 		contentPane.add(lblNewLabel);
@@ -114,6 +116,7 @@ public class modifier_consultation extends JFrame {
 		lblNewLabel_4.setBounds(56, 176, 322, 76);
 		contentPane.add(lblNewLabel_4);
 		
+		//creation du bouton valider et assimilation au code
 		JButton modif = new JButton("Valider");
 		modif.setBounds(46, 114, 332, 51);
 		contentPane.add(modif);

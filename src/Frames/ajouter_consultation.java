@@ -54,6 +54,7 @@ public class ajouter_consultation extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		// creation de tous les textfields qui permette d'écrire une consultation
 		textField = new JTextField();
 		textField.setBounds(125, 11, 96, 20);
 		contentPane.add(textField);
@@ -74,6 +75,7 @@ public class ajouter_consultation extends JFrame {
 		contentPane.add(textField3);
 		textField3.setColumns(10);
 		
+		// creation des label pour indiquer quelle information il faut mettre dans les textfield
 		JLabel lblNewLabel = new JLabel("no securité sociale patient");
 		lblNewLabel.setBounds(10, 14, 96, 14);
 		contentPane.add(lblNewLabel);
@@ -94,6 +96,7 @@ public class ajouter_consultation extends JFrame {
 		lblNewLabel_4.setBounds(56, 176, 322, 76);
 		contentPane.add(lblNewLabel_4);
 		
+		// creation du bouton valider et assimilation avec le code
 		JButton valider = new JButton("Valider");
 		valider.setBounds(46, 114, 332, 51);
 		contentPane.add(valider);

@@ -54,6 +54,7 @@ public class ajouter_patient extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//creation des textfields pour ajouter un patient
 		textField = new JTextField();
 		textField.setBounds(73, 11, 96, 20);
 		contentPane.add(textField);
@@ -77,6 +78,7 @@ public class ajouter_patient extends JFrame{
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
+		//assimilation des labels aux textfields pour savoir quelle informations on marque
 		JLabel lblNewLabel = new JLabel("Nom");
 		lblNewLabel.setBounds(10, 14, 49, 14);
 		contentPane.add(lblNewLabel);

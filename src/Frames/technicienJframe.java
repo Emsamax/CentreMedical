@@ -38,6 +38,8 @@ public class technicienJframe extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
+	 //titre de la frame
 	public technicienJframe() {
 		setTitle("Technicien");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,6 +49,7 @@ public class technicienJframe extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//creations des du bouton octroyer et assimilation au code
 		JButton btnNewButton = new JButton("octroyer");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -55,6 +58,9 @@ public class technicienJframe extends JFrame {
 		btnNewButton.setBounds(241, 172, 185, 80);
 		contentPane.add(btnNewButton);
 		
+
+		//creation du bouton rechercher et assimilation au code
+
 		JButton btnNewButton_1 = new JButton("rechercher");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -63,6 +69,8 @@ public class technicienJframe extends JFrame {
 		btnNewButton_1.setBounds(241, 64, 185, 85);
 		contentPane.add(btnNewButton_1);
 		
+
+		//creation du textfield pour rechercher
 		textField = new JTextField();
 		textField.setBounds(10, 64, 221, 85);
 		contentPane.add(textField);

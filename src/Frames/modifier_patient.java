@@ -59,7 +59,7 @@ public class modifier_patient extends JFrame {
 		
 			
 		
-
+		//titre de la frame
 		setTitle("modifier patient");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -68,6 +68,7 @@ public class modifier_patient extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//creation des différents textfielsds
 		textField = new JTextField(pat.getNom());
 		textField.setBounds(73, 11, 96, 20);
 		contentPane.add(textField);
@@ -89,6 +90,8 @@ public class modifier_patient extends JFrame {
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
+		//créations des differents labels associers aux différents textfields
+
 		JLabel lblNewLabel = new JLabel("Nom");
 		lblNewLabel.setBounds(10, 14, 49, 14);
 		contentPane.add(lblNewLabel);
@@ -110,6 +113,8 @@ public class modifier_patient extends JFrame {
 		lblNewLabel_4.setBounds(46, 176, 332, 87);
 		contentPane.add(lblNewLabel_4);
 
+
+		//creation du bouton valider et assimilation au code
 		JButton modif = new JButton("Valider");
 		modif.setBounds(46, 114, 332, 51);
 		contentPane.add(modif);

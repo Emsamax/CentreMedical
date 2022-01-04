@@ -52,6 +52,7 @@ public class medecinJframe extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//creation du bouton valider et assimilation au code
 		JButton modifier = new JButton("modifier");
 		modifier.setBounds(10, 146, 102, 47);
 		contentPane.add(modifier);
@@ -85,7 +86,7 @@ public class medecinJframe extends JFrame {
 		});
 		
 			
-		
+		//creation du bouton supprimer et assimilation au code
 		JButton suppr = new JButton("supprimer");
 		suppr.setBounds(151, 146, 102, 47);
 		contentPane.add(suppr);
@@ -119,7 +120,7 @@ public class medecinJframe extends JFrame {
 				
 			}
 		});
-		
+		//creation du bouton ajouter et assimilation au code
 		JButton ajouter = new JButton("ajouter");
 		ajouter.setBounds(300, 146, 102, 47);
 		contentPane.add(ajouter);
@@ -131,7 +132,7 @@ public class medecinJframe extends JFrame {
 		});
 		
 
-
+		//creation du bouton rechercher et assimilation au code	
 		JButton rechercher = new JButton("Rechercher");
 		rechercher.setBounds(205, 19, 221, 54);
 		contentPane.add(rechercher);
@@ -168,21 +169,26 @@ public class medecinJframe extends JFrame {
 				});
 		
 		
-		
+		//creation du jtextfields pour indiquer la recherche
 		textField = new JTextField();
 		textField.setBounds(10, 31, 167, 30);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		//bouton pour ajouter la pathologie
 		btnNewButton_4 = new JButton("Pathologie");
 		btnNewButton_4.setBounds(219, 210, 150, 42);
 		contentPane.add(btnNewButton_4);
 		
+		//textfields associers aux différents boutons
+
+
 		textField_4 = new JTextField();
 		textField_4.setBounds(86, 211, 109, 40);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
-	
+				
+		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(0, 88, 414, 47);
