@@ -120,4 +120,8 @@ public class Consultation {
         return id;
 
     }
+    @Override
+    public String toString() {
+        return Integer.toString(this.ID) + "/" + this.patient.nbSS + "/" + this.detailsCiniques  + "/" + this.date + "/" + this.appareilMedical.nom + "/" + Boolean.toString(this.appareilMedical.enAttente) + "\n";
+    }
 }

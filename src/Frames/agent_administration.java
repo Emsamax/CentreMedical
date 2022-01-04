@@ -71,11 +71,8 @@ public class agent_administration extends JFrame {
 		rechercher.setBounds(236, 17, 152, 58);
 		contentPane.add(rechercher);
 		rechercher.addActionListener (new ActionListener() {
-			
-
 			public void actionPerformed(ActionEvent event) {
-				
-
+			
 				basePatient basePat = new basePatient("ListePatient.txt");
 				try{
 					basePat.load();
@@ -88,14 +85,9 @@ public class agent_administration extends JFrame {
 				    Patient patR = basePat.rechercherPatient(nbSS);
 					System.out.println(patR.toString());
 					textField_1.setText(" patient : " + patR.toString() );
-					
-					
 				}catch(KeyException e){
 					System.out.println((e.toString()));
-				}finally{
-					
 				}
-				
 				btnNewButton_1.setEnabled(true);
 				btnNewButton_2.setEnabled(true);
 				btnNewButton.setEnabled(false);
@@ -109,6 +101,8 @@ public class agent_administration extends JFrame {
 		
 		
 		btnNewButton_1.setEnabled(false);
+		btnNewButton_1.setBounds(224, 142, 189, 50);
+		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			basePatient basePat = new basePatient("ListePatient.txt");
@@ -128,11 +122,12 @@ public class agent_administration extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(224, 142, 189, 50);
-		contentPane.add(btnNewButton_1);
+		
 		
 		
 		btnNewButton_2.setEnabled(false);
+		btnNewButton_2.setBounds(115, 202, 189, 50);
+		contentPane.add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String patientRecup = textField_1.getText();
@@ -142,8 +137,7 @@ public class agent_administration extends JFrame {
 				modifierpatient.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(115, 202, 189, 50);
-		contentPane.add(btnNewButton_2);
+		
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(32, 77, 356, 54);

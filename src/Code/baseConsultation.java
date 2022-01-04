@@ -72,9 +72,9 @@ public class baseConsultation {
             Patient pat = base.rechercherPatient(Mots[1]);
             // cast String to integer
             int ID = Integer.parseInt(Mots[0]);
-            boolean enAttente = Boolean.parseBoolean(Mots[4]);
-            appareilMedical app = new appareilMedical(Mots[3], enAttente);
-            Consultation consul = new Consultation(ID, Mots[1], pat, Mots[3], app);
+            boolean enAttente = Boolean.parseBoolean(Mots[5]);
+            appareilMedical app = new appareilMedical(Mots[4], enAttente);
+            Consultation consul = new Consultation(ID, Mots[3], pat, Mots[2], app);
             this.base.put(consul.ID ,consul);
         }
         lectureFichier.close();
@@ -92,7 +92,9 @@ public class baseConsultation {
         // boucle sur toutes les clés du hashmap.
         for (int ID : this.base.keySet()) {
             Consultation cons = this.base.get(ID); 
-            String line = Integer.toString(cons.ID) + "/" + cons.patient.nbSS + "/" + cons.detailsCiniques  + "/" + cons.appareilMedical.nom + "/" + Boolean.toString(cons.appareilMedical.enAttente) + "\n";
+            String line = Integer.toString(cons.ID) + "/" + cons.patient.nbSS + "/" + cons.detailsCiniques  + "/" + cons.date + "/" + cons.appareilMedical.nom + "/" + Boolean.toString(cons.appareilMedical.enAttente) + "\n";
+            System.out.println(line);
+            
             out.write(line);
             out.close();
             fileWriter.write(line);

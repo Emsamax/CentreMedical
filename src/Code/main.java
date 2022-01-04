@@ -39,7 +39,7 @@ public class main {
         //basePat.afficherBasePatient();
         //AppareilMedical appMedic = new AppareilMedical("atelle");
         
-        Consultation cons  = new Consultation("29:12:2021", pat, "mal au crane", medoc.createAppareilMedical("bandages"));
+        Consultation cons  = new Consultation("29:12:2021", pat, "test", medoc.createAppareilMedical("cerveau"));
         medoc.ajoutConsultation(baseCons, cons);
         baseCons.save();
 

@@ -10,9 +10,12 @@ import javax.swing.JTextField;
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.KeyException;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-
+import Code.*;
 public class medecinJframe extends JFrame {
 
 	private JPanel contentPane;
@@ -49,13 +52,122 @@ public class medecinJframe extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Rechercher");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton modifier = new JButton("modifier");
+		modifier.setBounds(10, 146, 102, 47);
+		contentPane.add(modifier);
+		modifier.setEnabled(false);
+		modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				baseConsultation baseCons = new baseConsultation("consultation.txt");
+				basePatient basePat = new basePatient("ListePatient.txt");
+				try{
+					basePat.load();
+					baseCons.load(basePat);
+				}catch(FileNotFoundException ev){
+					System.out.println(ev.toString());
+				}catch(IOException ev){
+					System.out.println(ev.toString());
+				}catch(KeyException evn){
+					System.out.println(evn.toString());
+				}
+				String nbconsRecup = textField.getText();
+				int ID = Integer.parseInt(nbconsRecup);
+				Consultation recup = new Consultation();
+				try {
+					recup = baseCons.rechercherConsultation(ID);
+				} catch (KeyException e1) {
+					e1.printStackTrace();
+				}
+				String nomAppMedic = recup.appareilMedical.nom;
+				modifier_consultation modifierconsultation = new modifier_consultation(ID, nomAppMedic);
+				modifierconsultation.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(205, 19, 221, 54);
-		contentPane.add(btnNewButton);
+		
+			
+		
+		JButton suppr = new JButton("supprimer");
+		suppr.setBounds(151, 146, 102, 47);
+		contentPane.add(suppr);
+		suppr.setEnabled(false);
+		suppr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			baseConsultation baseCons = new baseConsultation("consultation.txt");
+			basePatient basePat = new basePatient("ListePatient.txt");
+				try{
+					basePat.load();
+					baseCons.load(basePat);
+				}catch(FileNotFoundException ev){
+					System.out.println(ev.toString());
+				}catch(IOException ev){
+					System.out.println(ev.toString());
+				}catch(KeyException evn){
+					System.out.println(evn.toString());
+				}
+
+				String idS = textField.getText();
+				int ID = Integer.parseInt(idS);
+				
+				baseCons.supprimerConsultation(ID);
+				textField_1.setText("la consultation " + ID + " à été suprimé");
+				try{
+					basePat.save();
+					baseCons.save();
+				}catch(IOException event){
+					System.out.println(event.toString());
+				}
+				
+			}
+		});
+		
+		JButton ajouter = new JButton("ajouter");
+		ajouter.setBounds(300, 146, 102, 47);
+		contentPane.add(ajouter);
+		ajouter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ajouter_consultation ajouterconsultation = new ajouter_consultation();
+				ajouterconsultation.setVisible(true);
+			}
+		});
+		
+
+
+		JButton rechercher = new JButton("Rechercher");
+		rechercher.setBounds(205, 19, 221, 54);
+		contentPane.add(rechercher);
+		rechercher.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+						basePatient basePat = new basePatient("ListePatient.txt");
+						baseConsultation baseCons = new baseConsultation("consultation.txt");
+						try{
+							basePat.load();
+							baseCons.load(basePat);
+						}catch(IOException event){
+							System.out.println((event.toString()));
+						}catch(KeyException event){
+							System.out.println((event.toString()));
+						}
+						
+						String idS = textField.getText();
+						int ID = Integer.parseInt(idS);
+						
+						try{
+							Consultation cons = baseCons.rechercherConsultation(ID);
+							System.out.println(cons.toString());
+							textField_1.setText(" Consultation : " + cons.toString() );
+							
+							
+						}catch(KeyException event){
+							System.out.println((event.toString()));
+						}
+						modifier.setEnabled(true);
+						suppr.setEnabled(true);
+						ajouter.setEnabled(false);
+					}		
+				});
+		
+		
 		
 		textField = new JTextField();
 		textField.setBounds(10, 31, 167, 30);
@@ -70,31 +182,7 @@ public class medecinJframe extends JFrame {
 		textField_4.setBounds(86, 211, 109, 40);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
-		
-		JButton btnNewButton_2_1 = new JButton("modifier");
-		btnNewButton_2_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				modifier_consultation modifierconsultation = new modifier_consultation();
-				modifierconsultation.setVisible(true);
-			}
-		});
-		btnNewButton_2_1.setBounds(10, 146, 102, 47);
-		contentPane.add(btnNewButton_2_1);
-		
-		JButton btnNewButton_2_1_1 = new JButton("supprimer");
-		btnNewButton_2_1_1.setBounds(151, 146, 102, 47);
-		contentPane.add(btnNewButton_2_1_1);
-		
-		JButton btnNewButton_2_1_2 = new JButton("ajouter");
-		btnNewButton_2_1_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ajouter_consultation ajouterconsultation = new ajouter_consultation();
-				ajouterconsultation.setVisible(true);
-			}
-		});
-		btnNewButton_2_1_2.setBounds(300, 146, 102, 47);
-		contentPane.add(btnNewButton_2_1_2);
-		
+	
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(0, 88, 414, 47);
