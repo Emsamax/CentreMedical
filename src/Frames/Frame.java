@@ -47,7 +47,7 @@ public class Frame extends JFrame {
 		
 		JButton btnNewButton = new JButton("agent administration");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton.setBounds(154, 54, 208, 59);
+		btnNewButton.setBounds(154, 11, 208, 59);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				agent_administration agentadministration = new agent_administration();
@@ -67,7 +67,7 @@ public class Frame extends JFrame {
 			}
 		});
 		
-		btnNewButton_1.setBounds(154, 163, 208, 59);
+		btnNewButton_1.setBounds(154, 91, 208, 59);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("technicien");
@@ -79,7 +79,18 @@ public class Frame extends JFrame {
 			}
 		});
 		
-		btnNewButton_2.setBounds(154, 282, 208, 59);
+		btnNewButton_2.setBounds(154, 172, 208, 59);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("statistiques");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StatistiquesJframe Statistique = new StatistiquesJframe();
+				Statistique.setVisible(true);
+			}
+		});
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNewButton_3.setBounds(154, 256, 208, 59);
+		contentPane.add(btnNewButton_3);
 	}
 }
