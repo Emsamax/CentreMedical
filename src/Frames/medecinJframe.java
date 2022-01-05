@@ -21,7 +21,6 @@ public class medecinJframe extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JButton btnNewButton_4;
-	private JTextField textField_4;
 	private JTextField textField_1;
 
 	/**
@@ -176,17 +175,9 @@ public class medecinJframe extends JFrame {
 		textField.setColumns(10);
 		
 		//bouton pour ajouter la pathologie
-		btnNewButton_4 = new JButton("Pathologie");
-		btnNewButton_4.setBounds(219, 210, 150, 42);
+		btnNewButton_4 = new JButton("Ajouter Pathologie");
+		btnNewButton_4.setBounds(47, 210, 322, 42);
 		contentPane.add(btnNewButton_4);
-		
-		//textfields associers aux différents boutons
-
-
-		textField_4 = new JTextField();
-		textField_4.setBounds(86, 211, 109, 40);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
 				
 		
 		textField_1 = new JTextField();

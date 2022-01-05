@@ -115,7 +115,7 @@ public class modifier_patient extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(89, 259, 332, 87);
+		lblNewLabel_4.setBounds(10, 259, 566, 87);
 		contentPane.add(lblNewLabel_4);
 
 

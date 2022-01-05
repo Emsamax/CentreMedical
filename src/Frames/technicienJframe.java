@@ -76,6 +76,10 @@ public class technicienJframe extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(10, 172, 221, 80);
+		contentPane.add(lblNewLabel);
+		
 	
 	}
 }
