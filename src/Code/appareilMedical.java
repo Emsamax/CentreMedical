@@ -12,8 +12,8 @@ public class appareilMedical {
         this.enAttente = enAttente;
     }
 
-   public void valider(){
-       this.enAttente = false ;
+   public boolean valider(){
+       return this.enAttente = false;
    }
 
 }
