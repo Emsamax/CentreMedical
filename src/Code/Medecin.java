@@ -2,7 +2,7 @@ package Code;
 import java.security.KeyException;
 
 public class Medecin {
-    
+     //objet qui appelle les fonctions de la base destinées au medecin
     public String nom;
     
 

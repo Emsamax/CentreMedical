@@ -22,6 +22,7 @@ public class Patient {
         }
         this.nbSS = nbSS;
         this.dateNaissance = dateNaissance;
+        // le patient est associe a une liste de patient et une liiste de consultation,
         this.pathologies = new ArrayList<Pathologie>();
         this.consultations = new ArrayList<Consultation>();
     }
@@ -67,7 +68,7 @@ public class Patient {
     }
 
     public void ajouterPathologie(Pathologie pathologie) {
-        // appeler sous la forme Pathologie.COUDE (tout ce qui se trouve dans enum)
+        // appeler sous la forme ajouterPathologie.COUDE (tout ce qui se trouve dans enum)
         this.pathologies.add(pathologie);
     }
 
@@ -76,11 +77,8 @@ public class Patient {
     }
 
     private boolean verif(String NbSS) {
-
-       
         // = numero seciurite sociale
-        // verification nombre si c'est des chiffres //si il y en a 13 pile
-
+        // verification nombre si c'est des chiffres //si il y en a 13 pil
         char Chiffre = ' ';
         if (NbSS.length() != 13) {
             return false;
@@ -93,11 +91,8 @@ public class Patient {
             for (int j = 97; j < 122; j++) {
                 if (Chiffre == (Alphabet[i])) {
                     return false;
-
                 }
-
             }
-   
         }
         return  true;
     }

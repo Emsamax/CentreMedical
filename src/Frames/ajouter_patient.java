@@ -1,5 +1,4 @@
 package Frames;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.io.IOException;
 
@@ -9,9 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import Code.*;
-import javafx.scene.control.TextArea;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

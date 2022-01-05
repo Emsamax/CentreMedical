@@ -12,12 +12,13 @@ import java.util.Scanner;
 import javax.management.openmbean.KeyAlreadyExistsException;
 
 public class basePatient {
+    static int nombreDePatient;
     public String path;
-    private HashMap<String, Patient> base;
-
+    public HashMap<String, Patient> base;
+    //la hashmap prend en parametre le nbSS(numero securite sociale) et l'objet patient. 
+    //clé de la hashMap = nbSS, car il sera unique pour chaque patient.
     public basePatient(String path) {
         this.path = path;
-        //this.base = createBase();
     }
     
     private HashMap<String, Patient> createBase(){
@@ -28,6 +29,12 @@ public class basePatient {
         
 
     public void load() throws FileNotFoundException{
+        /* 
+        *a besoin d'une nv base vide pour la remplire
+        *lis le fichier.txt (path)
+        *cree les consultations à partir du fichier.txt (peupler la base)
+        *recupere l'objet patient via son numero de securite sociale
+        */
         this.base = createBase();
         FileReader lecteur = new FileReader(this.path);
         Scanner lectureFichier = new Scanner(lecteur);
@@ -37,6 +44,7 @@ public class basePatient {
             //mots = nom , prenom , nbSS , date naissance
             Patient pat = new Patient(mots[0],mots[1],mots[2],mots[3]);
             this.base.put(pat.nbSS, pat);
+            nombreDePatient++;
         }
         
         lectureFichier.close();    
@@ -44,6 +52,11 @@ public class basePatient {
     }
 
     public void save() throws IOException {
+        /*
+         * parcour la base
+         * ecris dans le fichier txt
+         * sauvegarde la base dans le fichier.txt (path)
+         */
         File Fichier = new File(this.path);
         File ModifFichier = new File(this.path + ".tmp");
         FileWriter fileWriter = new FileWriter(this.path + ".tmp");
@@ -59,16 +72,16 @@ public class basePatient {
         fileWriter.flush();
         fileWriter.close();
         Fichier.delete();
-       
+        // vérification que le fichier à bien été supprimé et rennomé
         if (ModifFichier.renameTo(Fichier)) {
             System.out.println("Le fichier a été renommé avec succès");
         } else {
             System.out.println("Impossible de renommer le fichier");
-
         }
     }
 
     public Patient rechercherPatient(String nbSS) throws KeyException {
+        // la recherche de patient se fait avec le nbSS, c'est la clé de la hashmap.
         if (this.base.containsKey(nbSS)) {
             return this.base.get(nbSS);
         } else
@@ -93,17 +106,7 @@ public class basePatient {
     }
 
     public void modifierPatient(String nom, String prenom, String nbss, String dateNaissance) throws KeyException {
-        // recherche du patient a modifier avec son ID !!! ne change pas le NBss du patient  
-      /*  Scanner sc = new Scanner(System.in);
-        System.out.println("nom patient a modifier");
-        String nom = sc.nextLine();
-       
-        System.out.println("prenom patient a modifier");
-        String prenom = sc.nextLine();
-        
-        System.out.println("date  de naissance patient a modifier");
-        String dateNaissance = sc.nextLine();
-       */ 
+        // recherche du patient a modifier avec son ID, ne change pas le nbSS du patient  
         Patient modifPatient = new Patient(nom, prenom, nbss, dateNaissance);
         if (this.base.containsKey(modifPatient.nbSS)) {
             this.base.replace(modifPatient.nbSS, modifPatient);
@@ -118,5 +121,13 @@ public class basePatient {
             MapString = this.base.get(nbSS).toString();
              System.out.println(" les elements de la hashmap sont :"+ MapString.toString());
             }
+    }
+
+    public int getNbPAtient(){
+        return nombreDePatient;
+    }
+
+    public void setnombreDePatient(int nb) {
+        nombreDePatient = nb;
     }
 }

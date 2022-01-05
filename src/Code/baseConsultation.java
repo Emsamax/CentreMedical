@@ -1,6 +1,5 @@
 package Code;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,8 +11,13 @@ import java.util.Scanner;
 import javax.management.openmbean.KeyAlreadyExistsException;
 
 public class baseConsultation {
+    public static int nbAppMedic;
+    static int nbAppMedicValides;
+    static int nbConsultation;
     public String path;
     public HashMap <Integer, Consultation> base;
+    //la hashmap prend en parametre l'ID de la consultation, et l'objet consultation 
+    //clé de la hashMap = ID, moyen trouvé pour différencier les consultations 
 
     public baseConsultation(String path) {
         this.path = path;
@@ -58,9 +62,11 @@ public class baseConsultation {
 
     public void load(basePatient base) throws KeyException, IOException{
         /*
-        lis le fichier.txt (path)
-        cree les consultations (peupler la base)
-        *recupere l'objet patient via son numero de securite sociale
+        *load(basePatient base) car une consultation est associée à un patient 
+        *a besoin d'une nv base vide pour la remplire
+        *lis le fichier.txt (path)
+        *cree les consultations à partir du fichier.txt(peupler la base)
+        *met les consultation dans la base(hashmpap)
         */
         this.base = createBase();
         FileReader lecteur = new FileReader(this.path);
@@ -76,6 +82,16 @@ public class baseConsultation {
             appareilMedical app = new appareilMedical(Mots[4], enAttente);
             Consultation consul = new Consultation(ID, Mots[3], pat, Mots[2], app);
             this.base.put(consul.ID ,consul);
+           
+            //Statistiques incrementées
+            nbConsultation++;
+            if(enAttente == true){
+                nbAppMedic++;
+            }else if(enAttente == false){
+                nbAppMedicValides++;
+                nbAppMedic++;
+            }
+            
         }
         lectureFichier.close();
         lecteur.close();
@@ -83,6 +99,8 @@ public class baseConsultation {
 
     public void save() throws IOException{
         /**
+         * parcour la base
+         * ecris dans le fichier txt
          * sauvegarde la base dans le fichier.txt (path)
          */
         File Fichier = new File(this.path);
@@ -101,9 +119,8 @@ public class baseConsultation {
         }
         fileWriter.flush();
         fileWriter.close();
-        
         Fichier.delete();
-
+        // vérification que le fichier à bien été supprimé et rennomé
         if (ModifFichier.renameTo(Fichier)) {
             System.out.println("Le fichier a été renommé avec succès");
         } else {
@@ -111,14 +128,30 @@ public class baseConsultation {
 
         }
     }
-    public void afficherBaseConsultation(baseConsultation base){
-        String MapString = null;
-        for(int ID: this.base.keySet()){
-            MapString = this.base.get(ID).toString();
-             System.out.println(" les elements de la hashmap sont :"+ MapString.toString());
-             
-
-        }
-        
+    // getters et setters des variables Static pour la frame statistique
+    public int getNbConsultation(){
+        System.out.println("nombre de patient  :" + nbConsultation);
+        return nbConsultation;
     }
+
+    public int getnbAppMedicValides(){
+        return nbAppMedicValides;
+    }
+
+    public int getnbAppMedic(){
+        return nbAppMedic;
+    }
+
+    public void setNbConsultation(int nb) {
+        nbConsultation = nb;
+    }
+
+    public void setnbAppMedicValides(int nb) {
+        nbAppMedicValides = nb;
+    }
+
+    public void setnbAppMedic(int nb) {
+        nbAppMedic = nb;
+    }
+    
 }

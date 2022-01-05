@@ -2,6 +2,7 @@ package Code;
 import java.security.KeyException;
 
 public class agentAdmin {
+    //objet qui appelle les fonctions de la base destinées à l'agent administrateur
     public String nom;
     public String prenom;
 

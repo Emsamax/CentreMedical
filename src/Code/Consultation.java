@@ -58,7 +58,6 @@ public class Consultation {
         this.date = date;
         this.patient = patient;
         this.detailsCiniques = detailsCiniques;
-        //this.appareilMedical = null;
         IDcourant = dernierID();
         this.ID = (IDcourant + 1);
     }
@@ -94,29 +93,26 @@ public class Consultation {
     }
 
     public int dernierID(){
+        //fonction pour trouver le dernier ID des consultations apartir du fichier.txt
         File file;
         FileReader fileReader;
         Scanner sc;
         int id = 1;
-        
         try {
             file = new File("consultation.txt");
             fileReader = new FileReader(file);
             sc = new Scanner(fileReader);
-            
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] split = line.split("/");
                 id = Integer.parseInt(split[0]);
             }
-            
             fileReader.close();
             sc.close();
         }
         catch (IOException exception) {
             exception.printStackTrace();
         }
-
         return id;
 
     }

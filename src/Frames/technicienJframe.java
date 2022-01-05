@@ -1,11 +1,10 @@
 package Frames;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTable;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -18,12 +17,12 @@ import java.security.KeyException;
 
 
 import Code.*;
-import javafx.event.Event;
+
+
+
 public class technicienJframe extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
-	private JTable table_1;
 	private JTextField textField;
 
 	/**
@@ -122,9 +121,7 @@ public class technicienJframe extends JFrame {
 
 			}
 		});
-	
-		
-		
+
 		textField = new JTextField();
 		textField.setBounds(10, 64, 221, 85);
 		contentPane.add(textField);

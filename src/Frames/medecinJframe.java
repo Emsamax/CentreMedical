@@ -1,5 +1,4 @@
 package Frames;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -7,14 +6,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import javax.swing.JList;
-import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.KeyException;
 import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
 import Code.*;
 public class medecinJframe extends JFrame {
 
@@ -175,6 +171,7 @@ public class medecinJframe extends JFrame {
 		textField.setColumns(10);
 		
 		//bouton pour ajouter la pathologie
+		//par manque de temps les pathologies ne sont pas dans le programme.
 		btnNewButton_4 = new JButton("Ajouter Pathologie");
 		btnNewButton_4.setBounds(47, 210, 322, 42);
 		contentPane.add(btnNewButton_4);

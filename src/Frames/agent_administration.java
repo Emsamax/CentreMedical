@@ -1,9 +1,7 @@
 package Frames;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
@@ -13,16 +11,13 @@ import java.io.IOException;
 import java.security.KeyException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
-import javax.swing.JTable;
-import javax.swing.JList;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+
 import Code.*;
 public class agent_administration extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
 	private JTextField textField;
 	private JTextField textField_1;
 
@@ -87,7 +82,7 @@ public class agent_administration extends JFrame {
 				try{
 				    Patient patR = basePat.rechercherPatient(nbSS);
 					System.out.println(patR.toString());
-					textField_1.setText(" patient : " + patR.toString() );
+					textField_1.setText(" patient : " + patR.toString());
 				}catch(KeyException e){
 					System.out.println((e.toString()));
 				}
@@ -116,7 +111,7 @@ public class agent_administration extends JFrame {
 				}
 				String nbSS = textField.getText();
 				basePat.supprimerPatient(nbSS);
-				textField_1.setText("le patient " + nbSS + " a  ete suprime");
+				textField_1.setText("le patient " + nbSS + " a ete suprime");
 				try{
 					basePat.save();
 				}catch(IOException event){
