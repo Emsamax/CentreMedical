@@ -116,7 +116,7 @@ public class agent_administration extends JFrame {
 				}
 				String nbSS = textField.getText();
 				basePat.supprimerPatient(nbSS);
-				textField_1.setText("le patient " + nbSS + " à été suprimé");
+				textField_1.setText("le patient " + nbSS + " a� ete suprime");
 				try{
 					basePat.save();
 				}catch(IOException event){

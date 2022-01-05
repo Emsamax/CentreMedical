@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Panel;
+import java.awt.Font;
 
 public class Frame extends JFrame {
 
@@ -45,7 +46,8 @@ public class Frame extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("agent administration");
-		btnNewButton.setBounds(23, 31, 111, 59);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNewButton.setBounds(154, 54, 208, 59);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				agent_administration agentadministration = new agent_administration();
@@ -57,6 +59,7 @@ public class Frame extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("medecin");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				medecinJframe medecin = new medecinJframe();
@@ -64,10 +67,11 @@ public class Frame extends JFrame {
 			}
 		});
 		
-		btnNewButton_1.setBounds(208, 31, 111, 59);
+		btnNewButton_1.setBounds(154, 163, 208, 59);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("technicien");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				technicienJframe technicien = new technicienJframe();
@@ -75,7 +79,7 @@ public class Frame extends JFrame {
 			}
 		});
 		
-		btnNewButton_2.setBounds(415, 31, 111, 59);
+		btnNewButton_2.setBounds(154, 282, 208, 59);
 		contentPane.add(btnNewButton_2);
 	}
 }

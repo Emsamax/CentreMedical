@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.security.KeyException;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class modifier_patient extends JFrame {
 
@@ -62,7 +63,7 @@ public class modifier_patient extends JFrame {
 		//titre de la frame
 		setTitle("modifier patient");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 455);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -70,53 +71,57 @@ public class modifier_patient extends JFrame {
 		
 		//creation des différents textfielsds
 		textField = new JTextField(pat.getNom());
-		textField.setBounds(73, 11, 96, 20);
+		textField.setBounds(325, 11, 96, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField(pat.getPrenom());
-		textField_1.setBounds(73, 63, 96, 20);
+		textField_1.setBounds(325, 42, 96, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField(pat.getNbSS());
-		textField_2.setBounds(317, 11, 96, 20);
+		textField_2.setBounds(325, 129, 96, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		textField_2.setEnabled(false);
 		
 		textField_3 = new JTextField(pat.getDateNaissance());
-		textField_3.setBounds(317, 60, 96, 20);
+		textField_3.setBounds(325, 82, 96, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
 		//créations des differents labels associers aux différents textfields
 
 		JLabel lblNewLabel = new JLabel("Nom");
-		lblNewLabel.setBounds(10, 14, 49, 14);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(105, 14, 49, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Prenom");
-		lblNewLabel_1.setBounds(10, 66, 49, 14);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_1.setBounds(105, 45, 128, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("numero securite social");
-		lblNewLabel_2.setBounds(179, 14, 128, 14);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_2.setBounds(105, 132, 186, 14);
 		contentPane.add(lblNewLabel_2);
 		lblNewLabel_2.setEnabled(false);
 		
-		JLabel lblNewLabel_3 = new JLabel("date de naissancce");
-		lblNewLabel_3.setBounds(211, 63, 96, 14);
+		JLabel lblNewLabel_3 = new JLabel("date de naissance");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_3.setBounds(105, 85, 156, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(46, 176, 332, 87);
+		lblNewLabel_4.setBounds(89, 259, 332, 87);
 		contentPane.add(lblNewLabel_4);
 
 
 		//creation du bouton valider et assimilation au code
 		JButton modif = new JButton("Valider");
-		modif.setBounds(46, 114, 332, 51);
+		modif.setBounds(105, 197, 332, 51);
 		contentPane.add(modif);
 		modif.addActionListener (new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
